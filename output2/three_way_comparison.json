@@ -1,0 +1,65 @@
+{
+  "baseline (gemma-3-4b, sem correcoes)": {
+    "total": 52,
+    "ok": 24,
+    "rate": 0.46153846153846156,
+    "by_difficulty": {
+      "easy": {
+        "ok": 9,
+        "total": 13
+      },
+      "medium": {
+        "ok": 9,
+        "total": 18
+      },
+      "hard": {
+        "ok": 6,
+        "total": 21
+      }
+    },
+    "syntactic_rate": 0.9230769230769231,
+    "zero_results": 24
+  },
+  "gemma-3-4b (corrigido)": {
+    "total": 52,
+    "ok": 30,
+    "rate": 0.5769230769230769,
+    "by_difficulty": {
+      "easy": {
+        "ok": 10,
+        "total": 13
+      },
+      "medium": {
+        "ok": 13,
+        "total": 18
+      },
+      "hard": {
+        "ok": 7,
+        "total": 21
+      }
+    },
+    "syntactic_rate": 0.9038461538461539,
+    "zero_results": 17
+  },
+  "nvidia/nemotron-3-nano-4b (corrigido)": {
+    "total": 52,
+    "ok": 19,
+    "rate": 0.36538461538461536,
+    "by_difficulty": {
+      "easy": {
+        "ok": 7,
+        "total": 13
+      },
+      "medium": {
+        "ok": 7,
+        "total": 18
+      },
+      "hard": {
+        "ok": 5,
+        "total": 21
+      }
+    },
+    "syntactic_rate": 0.5384615384615384,
+    "zero_results": 9
+  }
+}

@@ -1,0 +1,179 @@
+[
+  {
+    "id": "Q01",
+    "question_pt": "Quais são os fenótipos associados à síndrome de Marfan?",
+    "question_en": "What phenotypes are associated with Marfan syndrome?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?phenotype_label WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id \"OMIM:154700\" ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+    "type": "factoid",
+    "difficulty": "easy",
+    "expected_min_results": 5,
+    "expected_contains": [
+      "Arachnodactyly",
+      "Scoliosis"
+    ],
+    "sparql_patterns": [
+      "GRAPH_JOIN"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q05",
+    "question_pt": "Quais são os sinônimos de 'diabetes mellitus' no DOID?",
+    "question_en": "What are the synonyms of diabetes mellitus in DOID?",
+    "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT ?synonym WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_9351 oboInOwl:hasExactSynonym ?synonym .\n  }\n}",
+    "type": "list",
+    "difficulty": "easy",
+    "expected_min_results": 1,
+    "sparql_patterns": [
+      "BASIC_GRAPH_PATTERN"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q06",
+    "question_pt": "Quais são as subclasses diretas de 'neoplasm' no DOID?",
+    "question_en": "What are the direct subclasses of neoplasm in DOID?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?subclass ?label WHERE {\n  GRAPH <urn:doid> {\n    ?subclass rdfs:subClassOf obo:DOID_14566 .\n    ?subclass rdfs:label ?label .\n  }\n}",
+    "type": "list",
+    "difficulty": "easy",
+    "expected_min_results": 2,
+    "sparql_patterns": [
+      "BASIC_GRAPH_PATTERN"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q09",
+    "question_pt": "Quais são os xrefs OMIM da doença de Huntington no DOID?",
+    "question_en": "What are the OMIM cross-references for Huntington disease in DOID?",
+    "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT ?xref WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_12858 oboInOwl:hasDbXref ?xref .\n    FILTER(STRSTARTS(STR(?xref), \"OMIM:\"))\n  }\n}",
+    "type": "factoid",
+    "difficulty": "easy",
+    "expected_min_results": 1,
+    "sparql_patterns": [
+      "FILTER"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q11",
+    "question_pt": "Quais doenças estão associadas ao fenótipo 'aracnodactilia'?",
+    "question_en": "Which diseases are associated with the phenotype arachnodactyly?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT DISTINCT ?disease_name WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype obo:HP_0001166 ;\n             rdfs:label ?disease_name .\n  }\n}",
+    "type": "list",
+    "difficulty": "medium",
+    "expected_min_results": 2,
+    "sparql_patterns": [
+      "BASIC_GRAPH_PATTERN"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q14",
+    "question_pt": "Quais fenótipos estão associados à doença com xref OMIM:154700 no DOID?",
+    "question_en": "What phenotypes are associated with the disease having xref OMIM:154700 in DOID?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?doid_label ?phenotype_label WHERE {\n  GRAPH <urn:doid> {\n    ?doid_class oboInOwl:hasDbXref \"MIM:154700\" ;\n                rdfs:label ?doid_label .\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id \"OMIM:154700\" ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+    "type": "list",
+    "difficulty": "medium",
+    "expected_min_results": 3,
+    "sparql_patterns": [
+      "CROSS_GRAPH_JOIN"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q20",
+    "question_pt": "Qual doença no DOID possui o maior número de xrefs externos?",
+    "question_en": "Which disease in DOID has the most external cross-references?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT ?label (COUNT(DISTINCT ?xref) AS ?num_xrefs) WHERE {\n  GRAPH <urn:doid> {\n    ?disease oboInOwl:hasDbXref ?xref ;\n             rdfs:label ?label .\n  }\n} GROUP BY ?disease ?label\nORDER BY DESC(?num_xrefs)\nLIMIT 10",
+    "type": "aggregation",
+    "difficulty": "medium",
+    "expected_min_results": 1,
+    "sparql_patterns": [
+      "GROUP_BY",
+      "ORDER_BY",
+      "COUNT"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q23",
+    "question_pt": "Quais doenças compartilham 3 ou mais fenótipos com a síndrome de Marfan?",
+    "question_en": "Which diseases share 3 or more phenotypes with Marfan syndrome?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?other_name (COUNT(DISTINCT ?pheno) AS ?shared) WHERE {\n  GRAPH <urn:hpoa> {\n    ?marfan hpoa:source_id \"OMIM:154700\" ;\n            hpoa:has_phenotype ?pheno .\n    ?other hpoa:has_phenotype ?pheno ;\n           rdfs:label ?other_name .\n    FILTER(?other != ?marfan)\n  }\n} GROUP BY ?other ?other_name\nHAVING (COUNT(DISTINCT ?pheno) >= 3)\nORDER BY DESC(?shared)\nLIMIT 20",
+    "type": "aggregation",
+    "difficulty": "hard",
+    "expected_min_results": 1,
+    "sparql_patterns": [
+      "GROUP_BY",
+      "HAVING",
+      "FILTER"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q27",
+    "question_pt": "Quais fenótipos com label contendo 'cardiac' estão associados a quais doenças?",
+    "question_en": "Which phenotypes with label containing 'cardiac' are associated with which diseases?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?phenotype_label ?disease_name WHERE {\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n    FILTER(CONTAINS(LCASE(?phenotype_label), \"cardiac\"))\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype ?pheno ;\n             rdfs:label ?disease_name .\n  }\n} LIMIT 20",
+    "type": "complex_join",
+    "difficulty": "hard",
+    "expected_min_results": 2,
+    "sparql_patterns": [
+      "FILTER",
+      "STRING_FUNCTION",
+      "GRAPH_JOIN"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q28",
+    "question_pt": "Quais são os ancestrais comuns de 'asma' e 'DPOC' na hierarquia DOID?",
+    "question_en": "What are the common ancestors of asthma and COPD in the DOID hierarchy?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT DISTINCT ?ancestor_label WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_2841 rdfs:subClassOf+ ?ancestor .\n    obo:DOID_3083 rdfs:subClassOf+ ?ancestor .\n    ?ancestor rdfs:label ?ancestor_label .\n  }\n}",
+    "type": "hierarchy",
+    "difficulty": "hard",
+    "expected_min_results": 1,
+    "expected_contains": [
+      "disease"
+    ],
+    "sparql_patterns": [
+      "PROPERTY_PATH",
+      "SHARED_VARIABLE"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q39",
+    "question_pt": "Quais doenças no HPOA possuem mais fenótipos que a média de fenótipos por doença?",
+    "question_en": "Which diseases in HPOA have more phenotypes than the average number of phenotypes per disease?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?disease_name ?cnt WHERE {\n  {\n    SELECT ?disease ?disease_name (COUNT(DISTINCT ?pheno) AS ?cnt) WHERE {\n      GRAPH <urn:hpoa> {\n        ?disease hpoa:has_phenotype ?pheno ;\n                 rdfs:label ?disease_name .\n      }\n    } GROUP BY ?disease ?disease_name\n  }\n  {\n    SELECT (AVG(?c) AS ?avg_cnt) WHERE {\n      {\n        SELECT ?d (COUNT(DISTINCT ?p) AS ?c) WHERE {\n          GRAPH <urn:hpoa> {\n            ?d hpoa:has_phenotype ?p .\n          }\n        } GROUP BY ?d\n      }\n    }\n  }\n  FILTER(?cnt > ?avg_cnt)\n} ORDER BY DESC(?cnt)\nLIMIT 20",
+    "type": "aggregation",
+    "difficulty": "medium",
+    "expected_min_results": 1,
+    "sparql_patterns": [
+      "SUBQUERY",
+      "GROUP_BY",
+      "FILTER",
+      "AVG"
+    ],
+    "annotator": "A"
+  },
+  {
+    "id": "Q42",
+    "question_pt": "Quais fenótipos aparecem em mais de 50 doenças no HPOA e são subclasse de 'Abnormality of the nervous system'?",
+    "question_en": "Which phenotypes appear in more than 50 diseases in HPOA and are subclasses of 'Abnormality of the nervous system'?",
+    "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?phenotype_label ?disease_count WHERE {\n  {\n    SELECT ?pheno (COUNT(DISTINCT ?disease) AS ?disease_count) WHERE {\n      GRAPH <urn:hpoa> {\n        ?disease hpoa:has_phenotype ?pheno .\n      }\n    } GROUP BY ?pheno\n    HAVING (COUNT(DISTINCT ?disease) > 50)\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:subClassOf+ obo:HP_0000707 ;\n           rdfs:label ?phenotype_label .\n  }\n} ORDER BY DESC(?disease_count)",
+    "type": "aggregation",
+    "difficulty": "medium",
+    "expected_min_results": 1,
+    "sparql_patterns": [
+      "SUBQUERY",
+      "HAVING",
+      "GROUP_BY",
+      "PROPERTY_PATH",
+      "GRAPH_JOIN"
+    ],
+    "annotator": "A"
+  }
+]

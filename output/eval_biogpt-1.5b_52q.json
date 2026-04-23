@@ -1,0 +1,4207 @@
+{
+  "model": "microsoft/biogpt",
+  "backend": "huggingface",
+  "scenario_a_with_validation": {
+    "metrics": {
+      "total": 52,
+      "syntactically_valid": 0,
+      "syntactic_rate": 0.0,
+      "execution_success": 0,
+      "execution_rate": 0.0,
+      "has_results": 0,
+      "results_rate": 0.0,
+      "meets_expected": 0,
+      "correctness_rate": 0.0,
+      "spot_check_total": 0,
+      "spot_check_pass": 0,
+      "spot_check_rate": null,
+      "avg_attempts": 1.0,
+      "avg_time_seconds": 0.6020924082169166,
+      "by_difficulty": {
+        "easy": {
+          "total": 13,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "medium": {
+          "total": 18,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "hard": {
+          "total": 21,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 4.444817543029785,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 0.2860713005065918,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.5238122940063477,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the label of the root class 'disease' in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q04",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.30562639236450195,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the synonyms of diabetes mellitus in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q05",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.15868902206420898,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the direct subclasses of neoplasm in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q06",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.1603260040283203,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Arachnodactyly in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q07",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.3085160255432129,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many phenotype terms exist in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q08",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 0.2104659080505371,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the OMIM cross-references for Huntington disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q09",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.5627992153167725,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are annotated with the phenotype Seizure?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q10",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.4299442768096924,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are associated with the phenotype arachnodactyly?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q11",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.6069738864898682,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are shared between Marfan syndrome and Ehlers-Danlos syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q12",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.5767848491668701,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases are associated with the phenotype Intellectual disability?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q13",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.6075625419616699,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What phenotypes are associated with the disease having xref OMIM:154700 in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q14",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.6249206066131592,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which subclasses of infectious disease in DOID have a definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q15",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.4105043411254883,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have both OMIM and ORPHA cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q16",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.4278450012207031,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the phenotypes of cystic fibrosis via OMIM source_id?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q17",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.530726432800293,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have a name containing 'syndrome'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q18",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.4735982418060303,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the subclasses of eye disease in DOID with their labels?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q19",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.41370701789855957,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease in DOID has the most external cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q20",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.4884603023529053,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 10 annotated phenotypes in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q21",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.4264397621154785,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the top 10 most frequent phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q22",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.4576096534729004,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases share 3 or more phenotypes with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q23",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.34906840324401855,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the full hierarchy of cardiomyopathy in DOID (3 levels)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q24",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 0.5072462558746338,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are exclusive to Marfan syndrome (not in Ehlers-Danlos)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q25",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.6582186222076416,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have no annotated phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q26",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.4020569324493408,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes with label containing 'cardiac' are associated with which diseases?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q27",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 0.514704704284668,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the common ancestors of asthma and COPD in the DOID hierarchy?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q28",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 0.6300666332244873,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the distribution of phenotypes by HPO root category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q29",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.6614730358123779,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which rare diseases (ORPHA) are subclasses of metabolic disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q30",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 0.48573899269104004,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have a label but no definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q31",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.16308975219726562,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which direct subclasses of nervous system disease have synonyms, and which do not?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q32",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.3953819274902344,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases in HPOA have phenotype annotations but whose corresponding MIM xref does not exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q33",
+        "difficulty": "medium",
+        "type": "set_operation",
+        "time_seconds": 0.5809800624847412,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO phenotypes are subclasses of 'Abnormality of the eye' but have no annotated disease in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q34",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.623499870300293,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the labels of 'asthma' in both DOID and HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q35",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.26995253562927246,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which terms contain 'epilepsy' in the label, either in DOID or HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q36",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.4058833122253418,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the definition or the synonyms of Parkinson disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q37",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.3801414966583252,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases have phenotypes annotated in HPOA that are subclasses of 'Abnormality of the nervous system' OR 'Abnormality of the cardiovascular system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q38",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.8892397880554199,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have more phenotypes than the average number of phenotypes per disease?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q39",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.24978399276733398,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the most frequent phenotype among diseases that are subclasses of autoimmune disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q40",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.45606255531311035,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "For each HPO root category, which disease has the most annotated phenotypes in that category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q41",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.6548643112182617,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes appear in more than 50 diseases in HPOA and are subclasses of 'Abnormality of the nervous system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q42",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.595268964767456,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO terms are direct or indirect subclasses of 'Abnormality of the skeletal system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q43",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 1.2848832607269287,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have a definition or synonym containing the word 'autoimmune'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q44",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.8224084377288818,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which classes in DOID are reachable from 'lung cancer' by zero or more subClassOf steps?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q45",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.7432334423065186,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO phenotypes are reachable via a path of subClassOf followed by label, starting from the children of 'Abnormality of the cardiovascular system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q46",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 1.0758607387542725,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID are subclasses of genetic disease, have phenotype annotations in HPOA, and those phenotypes include Seizure in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q47",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.40068793296813965,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "For each DOID disease with MIM xref, how many HPOA-annotated phenotypes are subclasses of 'Abnormality of the nervous system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q48",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.9015469551086426,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have definitions containing 'autosomal recessive', have HPOA annotations, and the annotated phenotypes include children of 'Abnormality of the skeletal system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q49",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 1.3935906887054443,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO root categories have more than 100 distinct phenotypes annotated in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q50",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.45090675354003906,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 20 annotated phenotypes in HPOA, and of those phenotypes, more than 5 are subclasses of 'Abnormality of the nervous system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q51",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.718707799911499,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease pairs in HPOA share more than 10 phenotypes, and how many shared phenotypes do they have?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q52",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.20805644989013672,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      }
+    ]
+  },
+  "scenario_b_without_validation": {
+    "metrics": {
+      "total": 52,
+      "syntactically_valid": 0,
+      "syntactic_rate": 0.0,
+      "execution_success": 0,
+      "execution_rate": 0.0,
+      "has_results": 0,
+      "results_rate": 0.0,
+      "meets_expected": 0,
+      "correctness_rate": 0.0,
+      "spot_check_total": 0,
+      "spot_check_pass": 0,
+      "spot_check_rate": null,
+      "avg_attempts": 1.0,
+      "avg_time_seconds": 0.4119967497312106,
+      "by_difficulty": {
+        "easy": {
+          "total": 13,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "medium": {
+          "total": 18,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "hard": {
+          "total": 21,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.3376288414001465,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 0.18410325050354004,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.1002960205078125,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the label of the root class 'disease' in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q04",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.25005674362182617,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the synonyms of diabetes mellitus in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q05",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.16951537132263184,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the direct subclasses of neoplasm in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q06",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.1243276596069336,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Arachnodactyly in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q07",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.21920108795166016,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many phenotype terms exist in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q08",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 0.06319713592529297,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the OMIM cross-references for Huntington disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q09",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.35079121589660645,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are annotated with the phenotype Seizure?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q10",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.42948007583618164,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are associated with the phenotype arachnodactyly?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q11",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.37296390533447266,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are shared between Marfan syndrome and Ehlers-Danlos syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q12",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.3335592746734619,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases are associated with the phenotype Intellectual disability?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q13",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.44225335121154785,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What phenotypes are associated with the disease having xref OMIM:154700 in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q14",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.40241098403930664,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which subclasses of infectious disease in DOID have a definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q15",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.2287755012512207,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have both OMIM and ORPHA cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q16",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.2958219051361084,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the phenotypes of cystic fibrosis via OMIM source_id?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q17",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.44405555725097656,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have a name containing 'syndrome'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q18",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.22512459754943848,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the subclasses of eye disease in DOID with their labels?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q19",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.21913576126098633,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease in DOID has the most external cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q20",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.3195226192474365,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 10 annotated phenotypes in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q21",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.24393844604492188,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the top 10 most frequent phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q22",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.24786901473999023,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases share 3 or more phenotypes with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q23",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.23041558265686035,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the full hierarchy of cardiomyopathy in DOID (3 levels)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q24",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 0.28745245933532715,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are exclusive to Marfan syndrome (not in Ehlers-Danlos)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q25",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.5133533477783203,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have no annotated phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q26",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.2355668544769287,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes with label containing 'cardiac' are associated with which diseases?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q27",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 0.43889617919921875,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the common ancestors of asthma and COPD in the DOID hierarchy?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q28",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 0.48844027519226074,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the distribution of phenotypes by HPO root category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q29",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.42405271530151367,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which rare diseases (ORPHA) are subclasses of metabolic disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q30",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 0.31000828742980957,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have a label but no definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q31",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.2609236240386963,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which direct subclasses of nervous system disease have synonyms, and which do not?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q32",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.31235671043395996,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases in HPOA have phenotype annotations but whose corresponding MIM xref does not exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q33",
+        "difficulty": "medium",
+        "type": "set_operation",
+        "time_seconds": 0.5940182209014893,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO phenotypes are subclasses of 'Abnormality of the eye' but have no annotated disease in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q34",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.4092271327972412,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the labels of 'asthma' in both DOID and HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q35",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.20923185348510742,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which terms contain 'epilepsy' in the label, either in DOID or HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q36",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.32271361351013184,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the definition or the synonyms of Parkinson disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q37",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.3291943073272705,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases have phenotypes annotated in HPOA that are subclasses of 'Abnormality of the nervous system' OR 'Abnormality of the cardiovascular system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q38",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.9199340343475342,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have more phenotypes than the average number of phenotypes per disease?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q39",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.2576441764831543,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the most frequent phenotype among diseases that are subclasses of autoimmune disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q40",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.3341097831726074,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "For each HPO root category, which disease has the most annotated phenotypes in that category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q41",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.46819639205932617,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes appear in more than 50 diseases in HPOA and are subclasses of 'Abnormality of the nervous system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q42",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.49426746368408203,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO terms are direct or indirect subclasses of 'Abnormality of the skeletal system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q43",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.6808509826660156,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have a definition or synonym containing the word 'autoimmune'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q44",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.7271633148193359,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which classes in DOID are reachable from 'lung cancer' by zero or more subClassOf steps?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q45",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.8794355392456055,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO phenotypes are reachable via a path of subClassOf followed by label, starting from the children of 'Abnormality of the cardiovascular system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q46",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 1.2899367809295654,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID are subclasses of genetic disease, have phenotype annotations in HPOA, and those phenotypes include Seizure in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q47",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.41089463233947754,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "For each DOID disease with MIM xref, how many HPOA-annotated phenotypes are subclasses of 'Abnormality of the nervous system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q48",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.8717117309570312,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have definitions containing 'autosomal recessive', have HPOA annotations, and the annotated phenotypes include children of 'Abnormality of the skeletal system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q49",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 1.3362846374511719,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO root categories have more than 100 distinct phenotypes annotated in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q50",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.35839128494262695,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 20 annotated phenotypes in HPOA, and of those phenotypes, more than 5 are subclasses of 'Abnormality of the nervous system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q51",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.7527048587799072,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease pairs in HPOA share more than 10 phenotypes, and how many shared phenotypes do they have?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q52",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.27242588996887207,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      }
+    ]
+  },
+  "scenario_c_zero_shot": {
+    "metrics": {
+      "total": 52,
+      "syntactically_valid": 0,
+      "syntactic_rate": 0.0,
+      "execution_success": 0,
+      "execution_rate": 0.0,
+      "has_results": 0,
+      "results_rate": 0.0,
+      "meets_expected": 0,
+      "correctness_rate": 0.0,
+      "spot_check_total": 0,
+      "spot_check_pass": 0,
+      "spot_check_rate": null,
+      "avg_attempts": 1.0192307692307692,
+      "avg_time_seconds": 1.663401608283703,
+      "by_difficulty": {
+        "easy": {
+          "total": 13,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "medium": {
+          "total": 18,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "hard": {
+          "total": 21,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 4.5777528285980225,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 0.12837576866149902,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.08473563194274902,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the label of the root class 'disease' in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q04",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 10.838059186935425,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the synonyms of diabetes mellitus in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q05",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.11568450927734375,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the direct subclasses of neoplasm in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q06",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 13.854365825653076,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Arachnodactyly in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q07",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 14.4629967212677,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many phenotype terms exist in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q08",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 0.19048619270324707,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the OMIM cross-references for Huntington disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q09",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 0.20198869705200195,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are annotated with the phenotype Seizure?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q10",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.19292593002319336,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are associated with the phenotype arachnodactyly?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q11",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.27886199951171875,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are shared between Marfan syndrome and Ehlers-Danlos syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q12",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.16524529457092285,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases are associated with the phenotype Intellectual disability?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q13",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.1640610694885254,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What phenotypes are associated with the disease having xref OMIM:154700 in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q14",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.19966673851013184,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which subclasses of infectious disease in DOID have a definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q15",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 8.80055832862854,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have both OMIM and ORPHA cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q16",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.18350839614868164,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the phenotypes of cystic fibrosis via OMIM source_id?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q17",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.1839907169342041,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have a name containing 'syndrome'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q18",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.2539188861846924,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the subclasses of eye disease in DOID with their labels?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q19",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 12.619227409362793,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease in DOID has the most external cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q20",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.05830049514770508,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 10 annotated phenotypes in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q21",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.07300639152526855,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the top 10 most frequent phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q22",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.10627508163452148,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases share 3 or more phenotypes with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q23",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.061925649642944336,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the full hierarchy of cardiomyopathy in DOID (3 levels)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q24",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 0.08454370498657227,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are exclusive to Marfan syndrome (not in Ehlers-Danlos)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q25",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.10265660285949707,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have no annotated phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q26",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.11197543144226074,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes with label containing 'cardiac' are associated with which diseases?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q27",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 0.1420457363128662,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the common ancestors of asthma and COPD in the DOID hierarchy?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q28",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 0.11152052879333496,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the distribution of phenotypes by HPO root category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q29",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.0793609619140625,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which rare diseases (ORPHA) are subclasses of metabolic disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q30",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 0.0855252742767334,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have a label but no definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q31",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 7.990545034408569,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which direct subclasses of nervous system disease have synonyms, and which do not?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q32",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.15008234977722168,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases in HPOA have phenotype annotations but whose corresponding MIM xref does not exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q33",
+        "difficulty": "medium",
+        "type": "set_operation",
+        "time_seconds": 0.14710283279418945,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO phenotypes are subclasses of 'Abnormality of the eye' but have no annotated disease in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q34",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 0.0926973819732666,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the labels of 'asthma' in both DOID and HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q35",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.08104920387268066,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which terms contain 'epilepsy' in the label, either in DOID or HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q36",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.17480754852294922,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the definition or the synonyms of Parkinson disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q37",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.10516619682312012,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases have phenotypes annotated in HPOA that are subclasses of 'Abnormality of the nervous system' OR 'Abnormality of the cardiovascular system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q38",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.05467581748962402,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have more phenotypes than the average number of phenotypes per disease?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q39",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.044358015060424805,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the most frequent phenotype among diseases that are subclasses of autoimmune disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q40",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.13645672798156738,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "For each HPO root category, which disease has the most annotated phenotypes in that category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q41",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.45891261100769043,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes appear in more than 50 diseases in HPOA and are subclasses of 'Abnormality of the nervous system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q42",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.24753403663635254,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO terms are direct or indirect subclasses of 'Abnormality of the skeletal system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q43",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 0.061575889587402344,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have a definition or synonym containing the word 'autoimmune'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q44",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 0.04210686683654785,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which classes in DOID are reachable from 'lung cancer' by zero or more subClassOf steps?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q45",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 7.343688011169434,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO phenotypes are reachable via a path of subClassOf followed by label, starting from the children of 'Abnormality of the cardiovascular system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q46",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.08083367347717285,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID are subclasses of genetic disease, have phenotype annotations in HPOA, and those phenotypes include Seizure in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q47",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.08337903022766113,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "For each DOID disease with MIM xref, how many HPOA-annotated phenotypes are subclasses of 'Abnormality of the nervous system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q48",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.11282491683959961,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have definitions containing 'autosomal recessive', have HPOA annotations, and the annotated phenotypes include children of 'Abnormality of the skeletal system' in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q49",
+        "difficulty": "hard",
+        "type": "list",
+        "time_seconds": 0.10814428329467773,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which HPO root categories have more than 100 distinct phenotypes annotated in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q50",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 0.24007225036621094,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 20 annotated phenotypes in HPOA, and of those phenotypes, more than 5 are subclasses of 'Abnormality of the nervous system'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q51",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.051980018615722656,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease pairs in HPOA share more than 10 phenotypes, and how many shared phenotypes do they have?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "LLM backend error: index out of range in self"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "LLM backend error: index out of range in self",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q52",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 0.17534494400024414,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      }
+    ]
+  }
+}

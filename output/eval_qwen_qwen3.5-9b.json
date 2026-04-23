@@ -1,0 +1,4555 @@
+{
+  "model": "qwen/qwen3.5-9b",
+  "scenario_a_with_validation": {
+    "metrics": {
+      "total": 30,
+      "syntactically_valid": 25,
+      "syntactic_rate": 0.8333333333333334,
+      "execution_success": 20,
+      "execution_rate": 0.6666666666666666,
+      "has_results": 15,
+      "results_rate": 0.5,
+      "meets_expected": 15,
+      "correctness_rate": 0.5,
+      "spot_check_total": 1,
+      "spot_check_pass": 1,
+      "spot_check_rate": 1.0,
+      "avg_attempts": 2.2333333333333334,
+      "avg_time_seconds": 63.37939553260803,
+      "by_difficulty": {
+        "easy": {
+          "total": 10,
+          "valid": 7,
+          "executed": 6,
+          "correct": 5,
+          "valid_rate": 0.7,
+          "exec_rate": 0.6,
+          "correct_rate": 0.5
+        },
+        "medium": {
+          "total": 10,
+          "valid": 8,
+          "executed": 5,
+          "correct": 3,
+          "valid_rate": 0.8,
+          "exec_rate": 0.5,
+          "correct_rate": 0.3
+        },
+        "hard": {
+          "total": 10,
+          "valid": 10,
+          "executed": 9,
+          "correct": 7,
+          "valid_rate": 1.0,
+          "exec_rate": 0.9,
+          "correct_rate": 0.7
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT DISTINCT ?phenotype_label WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease oboInOwl:id \"DOID_14323\" ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": [
+            "UNDEFINED_PREFIX: prefix 'oboInOwl:' is used but not declared."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'Parse error: Line 5, column 14: Unresolved prefixed name: oboInOwl:id\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 73.83877348899841,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT (COUNT(DISTINCT ?d) AS ?total) WHERE {\n  GRAPH <urn:doid> {\n    ?d rdfs:subClassOf+ obo:DOID_1287 .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "total": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "626"
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 3,
+        "success": true,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 75.79412412643433,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?definition WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_10652 obo:IAO_0000115 ?definition .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "definition": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "A tauopathy that is characterized by memory lapses, confusion, emotional instability and progressive loss of mental ability and results in progressive memory loss, impaired thinking, disorientation, and changes in personality and mood starting and leads in advanced cases to a profound decline in cognitive and physical functioning and is marked histologically by the degeneration of brain neurons especially in the cerebral cortex and by the presence of neurofibrillary tangles and plaques containing beta-amyloid."
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 3,
+        "success": true,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 84.81166410446167,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the label of the root class 'disease' in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 3,
+        "success": false,
+        "question_id": "Q04",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 97.51016998291016,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the synonyms of diabetes mellitus in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 3,
+        "success": false,
+        "question_id": "Q05",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 97.76164269447327,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the direct subclasses of neoplasm in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?subclass ?label WHERE {\n  GRAPH <urn:doid> {\n    ?subclass rdfs:subClassOf obo:DOID_14566 .\n    ?subclass rdfs:label ?label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "subclass": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_162"
+              },
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "cancer"
+              }
+            },
+            {
+              "subclass": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0060072"
+              },
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "benign neoplasm"
+              }
+            },
+            {
+              "subclass": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0060071"
+              },
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "pre-malignant neoplasm"
+              }
+            }
+          ],
+          "count": 3
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q06",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 55.50100255012512,
+        "expected_min_results": 2,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Arachnodactyly in HPO?",
+        "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?definition WHERE {\n  GRAPH <urn:hpo> {\n    obo:HP_0001166 obo:IAO_0000115 ?definition .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "definition": {
+                "type": "literal",
+                "value": "Abnormally long and slender fingers (spider fingers)."
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q07",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 43.5534188747406,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many phenotype terms exist in HPO?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nSELECT (COUNT(DISTINCT ?term) AS ?total) WHERE {\n  GRAPH <urn:hpo> {\n    ?term a owl:Class .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "total": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "47014"
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q08",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 52.36853265762329,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the OMIM cross-references for Huntington disease in DOID?",
+        "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT ?xref WHERE {\n  GRAPH <urn:doid> {\n    ?disease oboInOwl:hasDbXref ?xref .\n    FILTER(STRSTARTS(STR(?xref), \"OMIM:\"))\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q09",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 52.20403861999512,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are annotated with the phenotype Seizure?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 3,
+        "success": false,
+        "question_id": "Q10",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 98.34650707244873,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are associated with the phenotype arachnodactyly?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT DISTINCT ?disease_name WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype obo:HP_0001166 ;\n             rdfs:label ?disease_name .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "15q26 overgrowth syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Achard syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arthrogryposis, distal, type 5"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Stickler syndrome, type I"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Contractural arachnodactyly, congenital"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ectopia lentis, familial"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ehlers-Danlos syndrome, spondylodysplastic type, 1"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ehlers-Danlos syndrome, periodontal type, 1"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Marfan syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Shprintzen-Goldberg craniosynostosis syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Antley-Bixler syndrome with genital anomalies and disordered steroidogenesis"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Alpha-2-deficient collagen disease"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Antley-Bixler syndrome without genital anomalies or disordered steroidogenesis"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arterial tortuosity syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cutis laxa, autosomal recessive, type IA"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ehlers-Danlos syndrome, kyphoscoliotic type, 1"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Homocystinuria due to cystathionine beta-synthase deficiency"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Homocystinuria, B6-responsive and nonresponsive types"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Haim-Munk syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Marden-Walker syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Neuhauser syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Escobar syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, X-linked syndromic, Siderius type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Osteopathia striata with cranial sclerosis"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, X-linked syndromic, Raymond type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, X-linked syndromic, Bain type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Meester-Loeys syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Galloway-Mowat syndrome 2, X-linked"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, X-linked, syndromic, Hackman-Di Donato type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Frontometaphyseal dysplasia"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Lujan-Fryns syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Myopathy, centronuclear, X-linked"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Aminopterin syndrome sine aminopterin"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Van den Ende-Gupta syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Facial dysmorphism, lens dislocation, anterior segment abnormalities, and spontaneous filtering blebs"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ehlers-Danlos syndrome, musculocontractural type 1"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mass syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Stickler syndrome, type II"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Spondyloocular syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Marfanoid habitus with situs inversus"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome 1"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome 2"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Camptodactyly, tall stature, and hearing loss syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Chromosome 10q22.3-q23.2 deletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Glass syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Chromosome 2p16.1-p15 deletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Myopathy, congenital, compton-north"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Witteveen-Kolk syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Chromosome 17p13.1 deletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome 3"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cutis laxa, neonatal, with marfanoid phenotype"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Craniosynostosis with radiohumeral fusions and other skeletal and craniofacial anomalies"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cutis laxa, autosomal recessive, type IB"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome 4"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Tetrasomy 15q26"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Osteogenesis imperfecta, type XIII"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Bainbridge-Ropers syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ehlers-Danlos syndrome, musculocontractural type, 2"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome 5"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Chromosome 15q11.2 deletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Epiphyseal chondrodysplasia, Miura type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Aortic aneurysm, familial thoracic 9"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Leukodystrophy, hypomyelinating, 10"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Nephrotic syndrome, type 11"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Marfan lipodystrophy syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Coffin-Siris syndrome 5"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Macrocephaly, dysmorphic facies, and psychomotor retardation"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arthrogryposis, distal, with impaired proprioception and touch"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, autosomal dominant 45"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Congenital heart defects and skeletal malformations syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Galloway-Mowat syndrome 3"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder with dysmorphic facies and behavioral abnormalities"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Galloway-Mowat syndrome 7"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder 62"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Tolchin-Le Caignec syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Rajab interstitial lung disease with brain calcifications 2"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Myopathy, epilepsy, and progressive cerebral atrophy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Neurodevelopmental disorder with microcephaly, impaired language, epilepsy, and gait abnormalities, autosomal dominant"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "VISS syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Short stature, Dauber-Argente type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Boudin-Mortier syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Galloway-Mowat syndrome 10"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome 6"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Bryant-Li-Bhoj neurodevelopmental syndrome 2"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, autosomal dominant 66"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Neurodevelopmental disorder with craniofacial dysmorphism and skeletal defects"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "RECON progeroid syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cornelia de Lange syndrome 6"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cutis laxa, autosomal recessive, type ID"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "ReNU syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arterial tortuosity-bone fragility syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Neurodevelopmental disorder with seizures and joint laxity"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Molybdenum cofactor deficiency, type B2"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Congenital disorder of glycosylation, type IICC"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Beta-mercaptolactate cysteine disulfiduria"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arachnodactyly-abnormal ossification-intellectual disability syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arthrogryposis-like hand anomaly-sensorineural deafness syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Congenital contractural arachnodactyly"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Arthrogryposis-oculomotor limitation-electroretinal anomalies syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cryptorchidism-arachnodactyly-intellectual disability syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Monosomy 18q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mosaic trisomy 1 syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Non-distal duplication 13q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal duplication 15q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal duplication 18q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cutis laxa-Marfanoid syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Blindness-scoliosis-arachnodactyly syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ectodermal dysplasia-sensorineural deafness syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cohen syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Fryns-Smeets-Thiry syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Harrod syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Microcephaly-glomerulonephritis-marfanoid habitus syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Hydrocephaly-tall stature-joint laxity syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Multiple pterygium-malignant hyperthermia syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "46,XX gonadal dysgenesis"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Shprintzen-Goldberg syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Marfanoid habitus-autosomal recessive intellectual disability syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "2q32q33 deletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Familial visceral myopathy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal 16p11.2 microdeletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "16p13.11 microduplication syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal 22q11.2 microdeletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Trisomy 1q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mowat-Wilson syndrome due to monosomy 2q22"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mowat-Wilson syndrome due to a ZEB2 point mutation"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Oculocerebrofacial syndrome, Kaufman type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Oculocerebral hypopigmentation syndrome, Cross type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Oculocerebral hypopigmentation syndrome, Preus type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Imperforate oropharynx-costovertebral anomalies syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "10q22.3q23.3 microdeletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Wolf-Hirschhorn syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Paraplegia-intellectual disability-hyperkeratosis syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Neonatal Marfan syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Aneurysm-osteoarthritis syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Hypermobile Ehlers-Danlos syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Short stature-craniofacial anomalies-genital hypoplasia syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "X-linked intellectual disability, Snyder type"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "15q overgrowth syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal triplication 15q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal 17p13.1 microdeletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal duplication 17q syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Proximal 16p11.2 microduplication syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Hypotonia-speech impairment-severe cognitive delay syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Gorlin syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Autosomal recessive cerebellar ataxia due to STUB1 deficiency"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Contractures-developmental delay-Pierre Robin syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Megalencephaly-severe kyphoscoliosis-overgrowth syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "DYRK1A-related intellectual disability syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "PYCR2-related microcephaly-progressive leukoencephalopathy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "ZTTK syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Early-onset seizures-distal limb anomalies-facial dysmorphism-global developmental delay syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "B3GALT6-related spondylodysplastic Ehlers-Danlos syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Classical-like Ehlers-Danlos syndrome type 2"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Kyphoscoliotic Ehlers-Danlos syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Congenital limbs-face contractures-hypotonia-developmental delay syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "22q11.2 deletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Loeys-Dietz syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Papillon-Lefèvre syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Visceral neuropathy-brain anomalies-facial dysmorphism-developmental delay syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Prolidase deficiency"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "B4GALT7-related spondylodysplastic Ehlers-Danlos syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Stickler syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Antley-Bixler syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Agammaglobulinemia-microcephaly-craniosynostosis-severe dermatitis syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "DPAGT1-CDG"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Brittle cornea syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Familial thoracic aortic aneurysm and aortic dissection"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Hamel cerebro-palato-cardiac syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Congenital adrenal hyperplasia due to cytochrome P450 oxidoreductase deficiency"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Distal deletion 19p syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Koolen-De Vries syndrome"
+              }
+            }
+          ],
+          "count": 171
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q11",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 50.88009285926819,
+        "expected_min_results": 2,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are shared between Marfan syndrome and Ehlers-Danlos syndrome?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\n\nSELECT DISTINCT ?phenotype_label WHERE {\n  GRAPH <urn:doid> {\n    ?marfan oboInOwl:hasDbXref ?xref .\n    FILTER(?xref = \"DOID:14323\" || ?xref = \"DOID_14323\")\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id ?xref ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:doid> {\n    ?eds oboInOwl:hasDbXref ?xref2 .\n    FILTER(?xref2 = \"DOID:13359\" || ?xref2 = \"DOID_13359\")\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id ?xref2 ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "EndPointInternalError: The endpoint returned the HTTP status code 500. \n\nResponse:\nb'org.apache.jena.query.QueryExecException: org.apache.jena.query.QueryExecException: org.apache.jena.sparql.ARQInternalErrorException: Peek iterator is already empty\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q12",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 63.931209564208984,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases are associated with the phenotype Intellectual disability?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT DISTINCT ?disease_name ?source_id WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype obo:HP_0001253 ;\n             rdfs:label ?disease_name ;\n             hpoa:source_id ?source_id .\n    FILTER(STRSTARTS(?source_id, \"OMIM:\"))\n  }\n} LIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q13",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 58.76184797286987,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What phenotypes are associated with the disease having xref OMIM:154700 in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?doid_label ?phenotype_label WHERE {\n  GRAPH <urn:doid> {\n    ?doid_class oboInOwl:hasDbXref \"OMIM:154700\" ;\n                rdfs:label ?doid_label .\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id \"OMIM:154700\" ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "EndPointInternalError: The endpoint returned the HTTP status code 500. \n\nResponse:\nb'org.apache.jena.query.QueryExecException: org.apache.jena.sparql.ARQInternalErrorException: Peek iterator is already empty\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q14",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 51.04923057556152,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which subclasses of infectious disease in DOID have a definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 3,
+        "success": false,
+        "question_id": "Q15",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 100.2925660610199,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have both OMIM and ORPHA cross-references?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT DISTINCT ?label WHERE {\n  GRAPH <urn:doid> {\n    ?disease oboInOwl:hasDbXref ?omim_xref ;\n             oboInOwl:hasDbXref ?orpha_xref ;\n             rdfs:label ?label .\n    FILTER(STRSTARTS(STR(?omim_xref), \"MIM:\"))\n    FILTER(CONTAINS(STR(?orpha_xref), \"orpha.net\"))\n  }\n} LIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q16",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 48.327274560928345,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the phenotypes of cystic fibrosis via OMIM source_id?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT DISTINCT ?phenotype_label WHERE {\n  GRAPH <urn:doid> {\n    ?doid_class oboInOwl:id \"DOID_1485\" ;\n                rdfs:label ?cystic_fibrosis_label .\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id ?source_id ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "EndPointInternalError: The endpoint returned the HTTP status code 500. \n\nResponse:\nb'org.apache.jena.query.QueryExecException: org.apache.jena.sparql.ARQInternalErrorException: Peek iterator is already empty\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q17",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 48.98678636550903,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have a name containing 'syndrome'?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT DISTINCT ?disease_name WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease rdfs:label ?disease_name .\n    FILTER(CONTAINS(LCASE(?disease_name), \"syndrome\"))\n  }\n} LIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Wolff-Parkinson-White syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Zollinger-Ellison syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Budd-Chiari syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Myelodysplastic syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Crouzon syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Scimitar syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Carpal tunnel syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Testicular regression syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Systemic capillary leak syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Asherman syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Brown syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Wolf-Hirschhorn syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Prader-Willi syndrome (Type 1)"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Nf1-Microdeletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "22q11 deletion syndrome (Velocardiofacial / DiGeorge syndrome)"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Sotos syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "1p36 microdeletion syndrome"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Potocki-Lupski syndrome (17p11.2 duplication syndrome)"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cri du Chat Syndrome (5p deletion)"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "22q13 deletion syndrome (Phelan-Mcdermid syndrome)"
+              }
+            }
+          ],
+          "count": 20
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q18",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 44.5022394657135,
+        "expected_min_results": 5,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the subclasses of eye disease in DOID with their labels?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 3,
+        "success": false,
+        "question_id": "Q19",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 102.31956744194031,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease in DOID has the most external cross-references?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT ?label (COUNT(DISTINCT ?xref) AS ?num_xrefs) WHERE {\n  GRAPH <urn:doid> {\n    ?disease oboInOwl:hasDbXref ?xref ;\n             rdfs:label ?label .\n  }\n} GROUP BY ?disease ?label\nORDER BY DESC(?num_xrefs)\nLIMIT 10",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "Kaposi's sarcoma"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "58"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "tongue cancer"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "35"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "skin carcinoma in situ"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "33"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "nasopharynx carcinoma"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "30"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "osteonecrosis"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "29"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "myopia"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "29"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "coronary artery disease"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "29"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "prostate cancer"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "28"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "esophageal cancer"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "28"
+              }
+            },
+            {
+              "label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "stomach cancer"
+              },
+              "num_xrefs": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "26"
+              }
+            }
+          ],
+          "count": 10
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q20",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 50.41951656341553,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 10 annotated phenotypes in HPO?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT ?disease_name (COUNT(DISTINCT ?pheno) AS ?num_phenotypes) WHERE {\n  GRAPH <urn:doid> {\n    ?doid_class rdfs:subClassOf+ obo:DOID_630 .\n    ?doid_class oboInOwl:hasDbXref ?xref .\n    FILTER(STRSTARTS(STR(?xref), \"MIM:\"))\n  }\n  BIND(REPLACE(STR(?xref), \"^MIM:\", \"OMIM:\") AS ?omim_id)\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id ?omim_id ;\n             hpoa:has_phenotype ?pheno ;\n             rdfs:label ?disease_name .\n  }\n} GROUP BY ?disease ?disease_name\nHAVING (COUNT(DISTINCT ?pheno) > 10)\nORDER BY DESC(?num_phenotypes)\nLIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "ReNU syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "211"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Multiple congenital anomalies-hypotonia-seizures syndrome 2"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "202"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Xia-Gibbs syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "192"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mitochondrial DNA depletion syndrome 6 (hepatocerebral type)"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "190"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cerebral arteriopathy, autosomal recessive, with subcortical infarcts and leukoencephalopathy 1"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "156"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Netherton syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "151"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Immunodeficiency 133 with ectodermal dysplasia with or without peripheral neuropathy"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "151"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Spinocerebellar ataxia 29, congenital nonprogressive"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "141"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Rubinstein-Taybi syndrome 1"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "141"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "White-Sutton syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "138"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Ogden syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "134"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mitochondrial complex IV deficiency, nuclear type 2"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "130"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cornelia de Lange syndrome 1"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "129"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Witteveen-Kolk syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "129"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder with dysmorphic facies and behavioral abnormalities"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "123"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, autosomal dominant 43"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "122"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Intellectual developmental disorder, autosomal dominant 21"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "121"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Cardiofaciocutaneous syndrome 1"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "120"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Smith-Lemli-Opitz syndrome"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "120"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "value": "Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type)"
+              },
+              "num_phenotypes": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "119"
+              }
+            }
+          ],
+          "count": 20
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q21",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 56.57358717918396,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the top 10 most frequent phenotypes in HPOA?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\n\nSELECT ?phenotype_label (COUNT(DISTINCT ?disease) AS ?frequency) WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n} GROUP BY ?pheno ?phenotype_label\nORDER BY DESC(?frequency)\nLIMIT 10",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Autosomal recessive inheritance"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "4301"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Autosomal dominant inheritance"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "3645"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Global developmental delay"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "2560"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Seizure"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "2521"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Intellectual disability"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "2461"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Short stature"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1859"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hypotonia"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1837"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Microcephaly"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1712"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Infantile onset"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1599"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Scoliosis"
+              },
+              "frequency": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1393"
+              }
+            }
+          ],
+          "count": 10
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q22",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 51.71650314331055,
+        "expected_min_results": 10,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases share 3 or more phenotypes with Marfan syndrome?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\n\nSELECT ?other_name (COUNT(DISTINCT ?pheno) AS ?shared) WHERE {\n  GRAPH <urn:doid> {\n    ?marfan oboInOwl:id \"DOID_14323\" .\n    ?other rdfs:label ?other_name .\n  }\n  GRAPH <urn:hpoa> {\n    ?marfan hpoa:has_phenotype ?pheno .\n    ?other hpoa:has_phenotype ?pheno .\n  }\n  FILTER(?other != ?marfan)\n} GROUP BY ?other ?other_name\nHAVING (COUNT(DISTINCT ?pheno) >= 3)\nORDER BY DESC(?shared)\nLIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "EndPointInternalError: The endpoint returned the HTTP status code 500. \n\nResponse:\nb'org.apache.jena.sparql.ARQInternalErrorException: Peek iterator is already empty\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q23",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 51.46363615989685,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the full hierarchy of cardiomyopathy in DOID (3 levels)?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?child ?child_label ?parent ?parent_label WHERE {\n  GRAPH <urn:doid> {\n    ?child rdfs:subClassOf+ obo:DOID_0050700 ;\n           rdfs:label ?child_label .\n    ?child rdfs:subClassOf ?parent .\n    ?parent rdfs:label ?parent_label .\n  }\n} LIMIT 30",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0060036"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "intrinsic cardiomyopathy"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050700"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0060036"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "intrinsic cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0080959"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 14"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0080959"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 14"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110070"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 1"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110070"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 1"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110072"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 3"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110072"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 3"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110073"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 4"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110073"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 4"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110074"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 5"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110074"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 5"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110075"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 6"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110076"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 8"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110076"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 8"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110077"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 9"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110077"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 9"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110081"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 10"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110081"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 10"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110082"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 11"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110083"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 12"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110083"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 12"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110084"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 13"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110084"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular dysplasia 13"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050431"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_2843"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "long QT syndrome"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0060036"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "intrinsic cardiomyopathy"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050434"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "Andersen-Tawil syndrome"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050434"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "Andersen-Tawil syndrome"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_2843"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "long QT syndrome"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0070533"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "long QT syndrome 16"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0070533"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "long QT syndrome 16"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_2843"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "long QT syndrome"
+              }
+            },
+            {
+              "child": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0110644"
+              },
+              "child_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "long QT syndrome 1"
+              },
+              "parent": {
+                "type": "uri",
+                "value": "http://purl.obolibrary.org/obo/DOID_0050736"
+              },
+              "parent_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "autosomal dominant disease"
+              }
+            }
+          ],
+          "count": 30
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q24",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 45.962719678878784,
+        "expected_min_results": 3,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are exclusive to Marfan syndrome (not in Ehlers-Danlos)?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\n\nSELECT DISTINCT ?phenotype_label WHERE {\n  GRAPH <urn:hpoa> {\n    ?marfan oboInOwl:id \"DOID_14323\" ;\n            hpoa:has_phenotype ?pheno .\n    MINUS {\n      ?eds oboInOwl:id \"DOID_0060057\" ;\n           hpoa:has_phenotype ?pheno .\n    }\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q25",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 57.57056140899658,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have no annotated phenotypes in HPOA?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT DISTINCT ?disease_name WHERE {\n  GRAPH <urn:doid> {\n    ?disease rdfs:label ?disease_name ;\n             oboInOwl:hasDbXref ?xref .\n  }\n  OPTIONAL {\n    GRAPH <urn:hpoa> {\n      ?hpoa_disease hpoa:source_id ?xref .\n    }\n  }\n  FILTER(!BOUND(?hpoa_disease))\n} LIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "angiosarcoma"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "pterygium"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "disease of metabolism"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "aspirin allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "benzylpenicillin allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "amoxicillin allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "ceftriaxone allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "carbamazepine allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "isoniazide allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "lidocaine allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "mepivacaine allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "phenobarbital allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "phenytoin allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "ranitidine allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "sulfonamide allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "thiopental allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "D-mannitol allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "cefotaxime allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "cephalosporin allergy"
+              }
+            },
+            {
+              "disease_name": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "amodiaquine allergy"
+              }
+            }
+          ],
+          "count": 20
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q26",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 58.41417598724365,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes with label containing 'cardiac' are associated with which diseases?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?phenotype_label ?disease_name WHERE {\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n    FILTER(CONTAINS(LCASE(?phenotype_label), \"cardiac\"))\n  }\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype ?pheno ;\n             rdfs:label ?disease_name .\n  }\n} LIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Arrhythmogenic right ventricular dysplasia 1"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Progressive familial heart block, type IA"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Ventricular arrhythmias due to cardiac ryanodine receptor calcium release deficiency syndrome"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Cardiomyopathy, familial hypertrophic, 3"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Cardiomyopathy, familial hypertrophic, 4"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Cardiomyopathy, dilated, 1A"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Cardiomyopathy, familial restrictive, 1"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Progressive familial heart block, type II"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Sick sinus syndrome 2"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Emery-Dreifuss muscular dystrophy 2, autosomal dominant"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Long QT syndrome 1"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Ventricular tachycardia, familial"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Wolff-Parkinson-White syndrome"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Very long-chain acyl-CoA dehydrogenase deficiency"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Sengers syndrome"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Cataract 46, juvenile-onset"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Jervell and Lange-Nielsen syndrome 1"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Ebstein anomaly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Emery-Dreifuss muscular dystrophy 1, X-linked"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Sudden cardiac death"
+              },
+              "disease_name": {
+                "type": "literal",
+                "value": "Cardiac arrhythmia, ankyrin-B-related"
+              }
+            }
+          ],
+          "count": 20
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q27",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 51.388831615448,
+        "expected_min_results": 2,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the common ancestors of asthma and COPD in the DOID hierarchy?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT DISTINCT ?ancestor_label WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_2841 rdfs:subClassOf+ ?ancestor .\n    obo:DOID_3083 rdfs:subClassOf+ ?ancestor .\n    ?ancestor rdfs:label ?ancestor_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "ancestor_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "lower respiratory tract disease"
+              }
+            },
+            {
+              "ancestor_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "respiratory system disease"
+              }
+            },
+            {
+              "ancestor_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "disease of anatomical entity"
+              }
+            },
+            {
+              "ancestor_label": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "disease"
+              }
+            }
+          ],
+          "count": 4
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q28",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 44.59884977340698,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": true
+      },
+      {
+        "question": "What is the distribution of phenotypes by HPO root category?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?category_label (COUNT(DISTINCT ?pheno) AS ?count) WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:subClassOf+ ?category .\n    ?category rdfs:subClassOf obo:HP_0000118 .\n    ?category rdfs:label ?category_label .\n  }\n} GROUP BY ?category ?category_label\nORDER BY DESC(?count)",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the musculoskeletal system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "2667"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the nervous system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1726"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of limbs"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1355"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of metabolism/homeostasis"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1351"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of head or neck"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "1105"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the genitourinary system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "935"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the cardiovascular system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "929"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the immune system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "881"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the integument"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "873"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the eye"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "788"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of blood and blood-forming tissues"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "620"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the digestive system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "605"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Neoplasm"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "474"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the respiratory system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "399"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the endocrine system"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "368"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the ear"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "220"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormal cellular phenotype"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "188"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of prenatal development or birth"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "116"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Constitutional symptom"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "93"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Growth abnormality"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "86"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the breast"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "28"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the voice"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "22"
+              }
+            },
+            {
+              "category_label": {
+                "type": "literal",
+                "value": "Abnormality of the thoracic cavity"
+              },
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "4"
+              }
+            }
+          ],
+          "count": 23
+        },
+        "attempts": 2,
+        "success": true,
+        "question_id": "Q29",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 74.13063454627991,
+        "expected_min_results": 3,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which rare diseases (ORPHA) are subclasses of metabolic disease in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nSELECT DISTINCT ?disease_label ?orpha_id WHERE {\n  GRAPH <urn:doid> {\n    ?disease rdfs:subClassOf+ obo:DOID_0014667 ;\n             rdfs:label ?disease_label ;\n             oboInOwl:hasDbXref ?orpha_id .\n    FILTER(CONTAINS(STR(?orpha_id), \"orpha.net\"))\n  }\n} LIMIT 20",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [],
+          "count": 0
+        },
+        "attempts": 2,
+        "success": false,
+        "question_id": "Q30",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 58.40216088294983,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      }
+    ]
+  },
+  "scenario_b_without_validation": {
+    "metrics": {
+      "total": 30,
+      "syntactically_valid": 0,
+      "syntactic_rate": 0.0,
+      "execution_success": 0,
+      "execution_rate": 0.0,
+      "has_results": 0,
+      "results_rate": 0.0,
+      "meets_expected": 0,
+      "correctness_rate": 0.0,
+      "spot_check_total": 0,
+      "spot_check_pass": 0,
+      "spot_check_rate": null,
+      "avg_attempts": 1.0,
+      "avg_time_seconds": 33.30753791332245,
+      "by_difficulty": {
+        "easy": {
+          "total": 10,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "medium": {
+          "total": 10,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        },
+        "hard": {
+          "total": 10,
+          "valid": 0,
+          "executed": 0,
+          "correct": 0,
+          "valid_rate": 0.0,
+          "exec_rate": 0.0,
+          "correct_rate": 0.0
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 33.43890714645386,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 33.227657318115234,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 34.050763845443726,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the label of the root class 'disease' in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q04",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 33.72828960418701,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the synonyms of diabetes mellitus in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q05",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 33.35341954231262,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the direct subclasses of neoplasm in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q06",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 32.987065076828,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Arachnodactyly in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q07",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 32.803224325180054,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many phenotype terms exist in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q08",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 32.90797567367554,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the OMIM cross-references for Huntington disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q09",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 33.53949046134949,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are annotated with the phenotype Seizure?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q10",
+        "difficulty": "easy",
+        "type": "list",
+        "time_seconds": 33.14718818664551,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases are associated with the phenotype arachnodactyly?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q11",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 33.0543646812439,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are shared between Marfan syndrome and Ehlers-Danlos syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q12",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 33.12928771972656,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which OMIM diseases are associated with the phenotype Intellectual disability?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q13",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 32.99542689323425,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What phenotypes are associated with the disease having xref OMIM:154700 in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q14",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 33.441981077194214,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which subclasses of infectious disease in DOID have a definition?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q15",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 32.94961738586426,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in DOID have both OMIM and ORPHA cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q16",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 33.36373043060303,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the phenotypes of cystic fibrosis via OMIM source_id?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q17",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 32.99233269691467,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases in HPOA have a name containing 'syndrome'?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q18",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 33.06118583679199,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the subclasses of eye disease in DOID with their labels?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q19",
+        "difficulty": "medium",
+        "type": "list",
+        "time_seconds": 32.994913816452026,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which disease in DOID has the most external cross-references?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q20",
+        "difficulty": "medium",
+        "type": "aggregation",
+        "time_seconds": 32.938838720321655,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which genetic diseases in DOID have more than 10 annotated phenotypes in HPO?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q21",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 33.25055432319641,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the top 10 most frequent phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q22",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 37.18166255950928,
+        "expected_min_results": 10,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which diseases share 3 or more phenotypes with Marfan syndrome?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q23",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 33.446311712265015,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the full hierarchy of cardiomyopathy in DOID (3 levels)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q24",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 32.8964900970459,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes are exclusive to Marfan syndrome (not in Ehlers-Danlos)?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q25",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 32.839759349823,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which DOID diseases have no annotated phenotypes in HPOA?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q26",
+        "difficulty": "hard",
+        "type": "set_operation",
+        "time_seconds": 33.0901141166687,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which phenotypes with label containing 'cardiac' are associated with which diseases?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q27",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 33.15394377708435,
+        "expected_min_results": 2,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What are the common ancestors of asthma and COPD in the DOID hierarchy?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q28",
+        "difficulty": "hard",
+        "type": "hierarchy",
+        "time_seconds": 32.896331548690796,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the distribution of phenotypes by HPO root category?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q29",
+        "difficulty": "hard",
+        "type": "aggregation",
+        "time_seconds": 33.13452219963074,
+        "expected_min_results": 3,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "Which rare diseases (ORPHA) are subclasses of metabolic disease in DOID?",
+        "sparql": "",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}  (at char 0), (line:1, col:1)"
+          ],
+          "warnings": [
+            "NO_GRAPH: Query does not specify a GRAPH clause. Consider targeting a specific named graph."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'SPARQL Query: Empty query string\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q30",
+        "difficulty": "hard",
+        "type": "complex_join",
+        "time_seconds": 33.23078727722168,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      }
+    ]
+  }
+}

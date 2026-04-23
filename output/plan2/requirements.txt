@@ -1,0 +1,12 @@
+python-dotenv>=1.0
+httpx>=0.27
+# scispaCy baseline
+spacy>=3.7,<3.8
+scispacy>=0.5.5
+# Gilda
+gilda>=1.2
+# MedCAT
+medcat>=1.12
+rdflib>=7.0
+pandas>=2.0
+# Model: pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.5/en_core_sci_sm-0.5.5.tar.gz

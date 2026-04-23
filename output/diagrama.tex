@@ -1,0 +1,76 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyvrb}
+
+\begin{document}
+
+\begin{center}
+{\Large\textbf{BioSPARQL-NL --- Diagrama de Arquitetura}}
+\end{center}
+
+\vspace{1em}
+
+\begin{Verbatim}[fontsize=\small,baselinestretch=1.0]
++------------------------------------------------------------------+
+|                         BioSPARQL-NL                            |
++------------------------------------------------------------------+
+
+  Usuario
+    |
+    |  pergunta em linguagem natural
+    v
++---------------+
+|  React + Vite |  frontend (localhost:5173)
++-------+-------+
+        |  HTTP
+        v
++---------------+
+|  FastAPI      |  backend (localhost:8000)
++-------+-------+
+        |
+        v
++------------------------------------------------------------+
+|                    BioSPARQLPipeline                       |
+|                                                            |
+|  +-------------+  +--------------+  +-----------------+   |
+|  | scispaCy NER|  |  FAISS index |  | Schema Extractor|   |
+|  | entity link |  |  few-shot(5) |  | (introspeocao   |   |
+|  +------+------+  +------+-------+  |   SPARQL)       |   |
+|         |                |          +--------+--------+   |
+|         +--------+-------+                   |            |
+|                  |  contexto enriquecido      |            |
+|                  v                            |            |
+|         +----------------+<------------------+            |
+|         |   Prompt LLM   |                                |
+|         +--------+-------+                                |
+|                  |                                        |
+|                  v                                        |
+|         +----------------+                                |
+|         |  LLM Backend   +---- LM Studio (localhost:1234) |
+|         |                +---- Anthropic API (opcional)   |
+|         +--------+-------+                                |
+|                  |  SPARQL gerado                         |
+|                  v                                        |
+|         +----------------+                                |
+|         |    Validator   |<--- schemas.json               |
+|         |  (autocorrige) |                                |
+|         +--------+-------+                                |
+|                  |  loop ate valido (max 3x)              |
++------------------+----------------------------------------+
+                   |  SPARQL valido
+                   v
+         +-----------------+
+         |  Apache Fuseki  |  localhost:3030
+         |                 |
+         |  urn:doid  302K |  Disease Ontology
+         |  urn:hpo   908K |  Human Phenotype Ontology
+         |  urn:hpoa  320K |  Anotacoes doenca -> fenotipo
+         +--------+--------+
+                  |  resultados JSON
+                  v
+              Usuario
+\end{Verbatim}
+
+\end{document}

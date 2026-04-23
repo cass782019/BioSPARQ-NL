@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Who developed Skype?",
+    "sparql": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT ?uri WHERE { res:Skype dbo:developer ?uri }"
+  },
+  {
+    "question": "Which people were born in Heraklion?",
+    "sparql": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT ?uri WHERE { ?uri dbo:birthPlace res:Heraklion }"
+  },
+  {
+    "question": "Give me all cities in Germany.",
+    "sparql": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT ?uri WHERE { ?uri dbo:country res:Germany . ?uri a dbo:City }"
+  },
+  {
+    "question": "Who is the author of the book Jurassic Park?",
+    "sparql": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT ?uri WHERE { res:Jurassic_Park_(novel) dbo:author ?uri }"
+  },
+  {
+    "question": "Which mountains are higher than 8000 meters?",
+    "sparql": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> SELECT ?uri WHERE { ?uri a dbo:Mountain . ?uri dbo:elevation ?elev . FILTER(?elev > 8000) }"
+  }
+]

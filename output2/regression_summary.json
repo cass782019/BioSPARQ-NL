@@ -1,0 +1,151 @@
+{
+  "total_questions": 12,
+  "success": 1,
+  "failed_no_results": 0,
+  "errored": 11,
+  "success_rate": 0.08333333333333333,
+  "rows": [
+    {
+      "id": "Q01",
+      "difficulty": "easy",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 5,
+      "attempts": 3,
+      "elapsed_s": 61.92,
+      "valid": false,
+      "error_short": "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found 'GRAPH'  (at char 159), (line:5, col:1)"
+    },
+    {
+      "id": "Q05",
+      "difficulty": "easy",
+      "status": "ok",
+      "success": true,
+      "results_count": 1,
+      "expected_min": 1,
+      "attempts": 1,
+      "elapsed_s": 4.64,
+      "valid": true,
+      "error_short": null
+    },
+    {
+      "id": "Q06",
+      "difficulty": "easy",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 2,
+      "attempts": 3,
+      "elapsed_s": 16.33,
+      "valid": false,
+      "error_short": "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found 'GRAPH'  (at char 99), (line:3, col:1)"
+    },
+    {
+      "id": "Q09",
+      "difficulty": "easy",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 1,
+      "attempts": 1,
+      "elapsed_s": 5.63,
+      "valid": true,
+      "error_short": null
+    },
+    {
+      "id": "Q11",
+      "difficulty": "medium",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 2,
+      "attempts": 1,
+      "elapsed_s": 7.65,
+      "valid": true,
+      "error_short": null
+    },
+    {
+      "id": "Q14",
+      "difficulty": "medium",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 3,
+      "attempts": 1,
+      "elapsed_s": 9.7,
+      "valid": true,
+      "error_short": null
+    },
+    {
+      "id": "Q20",
+      "difficulty": "medium",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 1,
+      "attempts": 1,
+      "elapsed_s": 7.68,
+      "valid": true,
+      "error_short": null
+    },
+    {
+      "id": "Q23",
+      "difficulty": "hard",
+      "status": "exception",
+      "success": false,
+      "results_count": 0,
+      "attempts": 0,
+      "elapsed_s": 180.31,
+      "error_short": "Timeout apos 180s"
+    },
+    {
+      "id": "Q27",
+      "difficulty": "hard",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 2,
+      "attempts": 1,
+      "elapsed_s": 14.97,
+      "valid": true,
+      "error_short": null
+    },
+    {
+      "id": "Q28",
+      "difficulty": "hard",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 1,
+      "attempts": 3,
+      "elapsed_s": 25.46,
+      "valid": false,
+      "error_short": "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found 'GRAPH'  (at char 270), (line:6, col:1)"
+    },
+    {
+      "id": "Q39",
+      "difficulty": "medium",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 1,
+      "attempts": 3,
+      "elapsed_s": 25.96,
+      "valid": false,
+      "error_short": "SYNTAX_ERROR: Expected SelectQuery, found 'GROUP'  (at char 376), (line:10, col:3)"
+    },
+    {
+      "id": "Q42",
+      "difficulty": "medium",
+      "status": "failed",
+      "success": false,
+      "results_count": 0,
+      "expected_min": 1,
+      "attempts": 1,
+      "elapsed_s": 12.22,
+      "valid": true,
+      "error_short": null
+    }
+  ]
+}

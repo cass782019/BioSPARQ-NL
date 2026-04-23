@@ -1,0 +1,1205 @@
+{
+  "model": "google/gemma-3-4b",
+  "backend": "lm_studio",
+  "scenario_a_with_validation": {
+    "metrics": {
+      "total": 3,
+      "syntactically_valid": 3,
+      "syntactic_rate": 1.0,
+      "execution_success": 3,
+      "execution_rate": 1.0,
+      "has_results": 3,
+      "results_rate": 1.0,
+      "meets_expected": 3,
+      "correctness_rate": 1.0,
+      "spot_check_total": 1,
+      "spot_check_pass": 1,
+      "spot_check_rate": 1.0,
+      "avg_attempts": 1.0,
+      "avg_time_seconds": 12.037898381551107,
+      "by_difficulty": {
+        "easy": {
+          "total": 3,
+          "valid": 3,
+          "executed": 3,
+          "correct": 3,
+          "valid_rate": 1.0,
+          "exec_rate": 1.0,
+          "correct_rate": 1.0
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?phenotype_label WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id \"OMIM:154700\" ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Malar flattening"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Micrognathia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pectus carinatum"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Joint hypermobility"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Retrognathia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Autosomal dominant inheritance"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Tall stature"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Narrow palate"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "High palate"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Dolichocephaly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Narrow face"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Long face"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Astigmatism"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Strabismus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Deeply set eye"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Downslanted palpebral fissures"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Glaucoma"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Cataract"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Retinal detachment"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Myopia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hypoplasia of the iris"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Esotropia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Exotropia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Dental crowding"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pectus excavatum"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Striae distensae"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Ectopia lentis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Arachnodactyly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Flexion contracture"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Limited elbow extension"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Disproportionate tall stature"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Mitral valve prolapse"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Congestive heart failure"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Bicuspid aortic valve"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Mitral regurgitation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Aortic regurgitation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Tricuspid valve prolapse"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pes cavus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Talipes"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pes planus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hammertoe"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Narrow foot"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Camptodactyly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Metatarsus adductus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Emphysema"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pneumothorax"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Aortic root aneurysm"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Aortic dissection"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Scoliosis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Kyphoscoliosis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Genu recurvatum"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Premature osteoarthritis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Protrusio acetabuli"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Decreased muscle mass"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Spondylolisthesis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Reduced subcutaneous adipose tissue"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Incisional hernia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pulmonary artery dilatation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Ascending tubular aorta aneurysm"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Mitral annular calcification"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Tricuspid regurgitation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Increased axial length of the globe"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Medial rotation of the medial malleolus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Equinus calcaneus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Reduced upper to lower segment ratio"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hypertropia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Inferior oblique muscle overaction"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Microspherophakia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Spontaneous cerebrospinal fluid leak"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Dural ectasia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Thoracic lordosis"
+              }
+            }
+          ],
+          "count": 71
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 25.648536205291748,
+        "expected_min_results": 5,
+        "meets_expected": true,
+        "spot_check_pass": true
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT (COUNT(DISTINCT ?d) AS ?total) WHERE {\n  GRAPH <urn:doid> {\n    ?d rdfs:subClassOf+ obo:DOID_1287 .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "total": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "626"
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 6.087970972061157,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?definition WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_10652 obo:IAO_0000115 ?definition .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "definition": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "A tauopathy that is characterized by memory lapses, confusion, emotional instability and progressive loss of mental ability and results in progressive memory loss, impaired thinking, disorientation, and changes in personality and mood starting and leads in advanced cases to a profound decline in cognitive and physical functioning and is marked histologically by the degeneration of brain neurons especially in the cerebral cortex and by the presence of neurofibrillary tangles and plaques containing beta-amyloid."
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 4.377187967300415,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      }
+    ]
+  },
+  "scenario_b_without_validation": {
+    "metrics": {
+      "total": 3,
+      "syntactically_valid": 3,
+      "syntactic_rate": 1.0,
+      "execution_success": 3,
+      "execution_rate": 1.0,
+      "has_results": 3,
+      "results_rate": 1.0,
+      "meets_expected": 3,
+      "correctness_rate": 1.0,
+      "spot_check_total": 1,
+      "spot_check_pass": 1,
+      "spot_check_rate": 1.0,
+      "avg_attempts": 1.0,
+      "avg_time_seconds": 5.953607797622681,
+      "by_difficulty": {
+        "easy": {
+          "total": 3,
+          "valid": 3,
+          "executed": 3,
+          "correct": 3,
+          "valid_rate": 1.0,
+          "exec_rate": 1.0,
+          "correct_rate": 1.0
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nSELECT ?phenotype_label WHERE {\n  GRAPH <urn:hpoa> {\n    ?disease hpoa:source_id \"OMIM:154700\" ;\n             hpoa:has_phenotype ?pheno .\n  }\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?phenotype_label .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Malar flattening"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Micrognathia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pectus carinatum"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Joint hypermobility"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Retrognathia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Autosomal dominant inheritance"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Tall stature"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Narrow palate"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "High palate"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Dolichocephaly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Narrow face"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Long face"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Astigmatism"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Strabismus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Deeply set eye"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Downslanted palpebral fissures"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Glaucoma"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Cataract"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Retinal detachment"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Myopia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hypoplasia of the iris"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Esotropia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Exotropia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Dental crowding"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pectus excavatum"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Striae distensae"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Ectopia lentis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Arachnodactyly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Flexion contracture"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Limited elbow extension"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Disproportionate tall stature"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Mitral valve prolapse"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Congestive heart failure"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Bicuspid aortic valve"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Mitral regurgitation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Aortic regurgitation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Tricuspid valve prolapse"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pes cavus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Talipes"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pes planus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hammertoe"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Narrow foot"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Camptodactyly"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Metatarsus adductus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Emphysema"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pneumothorax"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Aortic root aneurysm"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Aortic dissection"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Scoliosis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Kyphoscoliosis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Genu recurvatum"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Premature osteoarthritis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Protrusio acetabuli"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Decreased muscle mass"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Spondylolisthesis"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Reduced subcutaneous adipose tissue"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Incisional hernia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Pulmonary artery dilatation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Ascending tubular aorta aneurysm"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Mitral annular calcification"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Tricuspid regurgitation"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Increased axial length of the globe"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Medial rotation of the medial malleolus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Equinus calcaneus"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Reduced upper to lower segment ratio"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Hypertropia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Inferior oblique muscle overaction"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Microspherophakia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Spontaneous cerebrospinal fluid leak"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Dural ectasia"
+              }
+            },
+            {
+              "phenotype_label": {
+                "type": "literal",
+                "value": "Thoracic lordosis"
+              }
+            }
+          ],
+          "count": 71
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 7.672138214111328,
+        "expected_min_results": 5,
+        "meets_expected": true,
+        "spot_check_pass": true
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT (COUNT(DISTINCT ?d) AS ?total) WHERE {\n  GRAPH <urn:doid> {\n    ?d rdfs:subClassOf+ obo:DOID_1287 .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "total": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "626"
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 5.881057262420654,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nSELECT ?definition WHERE {\n  GRAPH <urn:doid> {\n    obo:DOID_10652 obo:IAO_0000115 ?definition .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "definition": {
+                "type": "literal",
+                "xml:lang": "en",
+                "value": "A tauopathy that is characterized by memory lapses, confusion, emotional instability and progressive loss of mental ability and results in progressive memory loss, impaired thinking, disorientation, and changes in personality and mood starting and leads in advanced cases to a profound decline in cognitive and physical functioning and is marked histologically by the degeneration of brain neurons especially in the cerebral cortex and by the presence of neurofibrillary tangles and plaques containing beta-amyloid."
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 4.30762791633606,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      }
+    ]
+  },
+  "scenario_c_zero_shot": {
+    "metrics": {
+      "total": 3,
+      "syntactically_valid": 2,
+      "syntactic_rate": 0.6666666666666666,
+      "execution_success": 1,
+      "execution_rate": 0.3333333333333333,
+      "has_results": 1,
+      "results_rate": 0.3333333333333333,
+      "meets_expected": 1,
+      "correctness_rate": 0.3333333333333333,
+      "spot_check_total": 0,
+      "spot_check_pass": 0,
+      "spot_check_rate": null,
+      "avg_attempts": 1.0,
+      "avg_time_seconds": 10.654389381408691,
+      "by_difficulty": {
+        "easy": {
+          "total": 3,
+          "valid": 2,
+          "executed": 1,
+          "correct": 1,
+          "valid_rate": 0.6666666666666666,
+          "exec_rate": 0.3333333333333333,
+          "correct_rate": 0.3333333333333333
+        }
+      }
+    },
+    "results": [
+      {
+        "question": "What phenotypes are associated with Marfan syndrome?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX obo: <http://obo.owlmind.com/>\nPREFIX hpoa: <http://purl.obolibrary.org/obo/hpoa>\nPREFIX oboInOwl: <http://purl.obolibrary.org/obo/owlapi#>\nGRAPH <urn:doid> {\n  ?disease oboInOwl:term ?term .\n  ?term rdfs:label \"Marfan syndrome\"@en .\n  ?disease oboInOwl:hasDbXref ?xref .\n  ?xref rdf:type obo:ConceptReference ;\n    obo:term ?term .\n}\nGRAPH <urn:hpo> {\n  ?phenotype hpoa:term ?term .\n  ?term rdfs:label \"Marfan syndrome\"@en .\n}",
+        "validation": {
+          "valid": false,
+          "errors": [
+            "SYNTAX_ERROR: Expected {SelectQuery | ConstructQuery | DescribeQuery | AskQuery}, found 'GRAPH'  (at char 258), (line:6, col:1)"
+          ],
+          "warnings": []
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'Parse error: Encountered \" \"graph\" \"GRAPH \"\" at line 6, column 1.\\r\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q01",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 12.758015632629395,
+        "expected_min_results": 5,
+        "meets_expected": false,
+        "spot_check_pass": null
+      },
+      {
+        "question": "How many subclasses of cardiovascular disease exist in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX obo: <http://obo.org/>\nPREFIX hpoa: <http://purl.obolibrary.org/obo/hpoa>\nPREFIX oboInOwl: <http://purl.obolibrary.org/obo/owlapi#>\n\nSELECT (COUNT(?subclass) AS ?count)\nWHERE {\n  GRAPH <urn:doid> {\n    ?subclass a obo:Concept ;\n               rdfs:label \"Subclass of Cardiovascular Disease\"@en .\n  }\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": []
+        },
+        "execution": {
+          "success": true,
+          "results": [
+            {
+              "count": {
+                "type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+                "value": "0"
+              }
+            }
+          ],
+          "count": 1
+        },
+        "attempts": 1,
+        "success": true,
+        "question_id": "Q02",
+        "difficulty": "easy",
+        "type": "count",
+        "time_seconds": 7.804357051849365,
+        "expected_min_results": 1,
+        "meets_expected": true,
+        "spot_check_pass": null
+      },
+      {
+        "question": "What is the definition of Alzheimer disease in DOID?",
+        "sparql": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX obo: <http://obo.owlmind.com/>\nPREFIX hpoa: <http://purl.obolibrary.org/vocab/hpoa#>\nPREFIX oboInOwl: <http://purl.obolibrary.org/obo/owlapi#>\n\nSELECT ?definition WHERE {\n  GRAPH <urn:doid> {\n    ?disease a obo:Concept ;\n      rdfs:label \"Alzheimer disease\"@en ;\n      obo:dBXref ?xref .\n  }\n  GRAPH <urn:hpoa> {\n    ?xref a hpoa:Annotation ;\n      hpoa:source_id ?disease .\n  }\n  ?xref rdfs:label \"Alzheimer disease\"@en.\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO]\"}\n  FILTER regex(?definition, \"^.+\", \"i\")\n}",
+        "validation": {
+          "valid": true,
+          "errors": [],
+          "warnings": [
+            "UNDEFINED_PREFIX: prefix 'bd:' is used but not declared.",
+            "UNDEFINED_PREFIX: prefix 'wikibase:' is used but not declared."
+          ]
+        },
+        "execution": {
+          "success": false,
+          "error": "QueryBadFormed: A bad request has been sent to the endpoint: probably the SPARQL query is badly formed. \n\nResponse:\nb'Parse error: Line 18, column 11: Unresolved prefixed name: wikibase:label\\n'",
+          "results": [],
+          "count": 0
+        },
+        "attempts": 1,
+        "success": false,
+        "question_id": "Q03",
+        "difficulty": "easy",
+        "type": "factoid",
+        "time_seconds": 11.400795459747314,
+        "expected_min_results": 1,
+        "meets_expected": false,
+        "spot_check_pass": null
+      }
+    ]
+  }
+}

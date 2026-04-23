@@ -1,0 +1,97 @@
+{
+  "baseline": {
+    "total": 52,
+    "ok": 24,
+    "fail": 28,
+    "rate": 0.46153846153846156,
+    "by_difficulty": {
+      "easy": {
+        "ok": 9,
+        "total": 13
+      },
+      "medium": {
+        "ok": 9,
+        "total": 18
+      },
+      "hard": {
+        "ok": 6,
+        "total": 21
+      }
+    }
+  },
+  "corrected": {
+    "total": 52,
+    "ok": 30,
+    "fail": 22,
+    "rate": 0.5769230769230769,
+    "by_difficulty": {
+      "easy": {
+        "ok": 10,
+        "total": 13
+      },
+      "medium": {
+        "ok": 13,
+        "total": 18
+      },
+      "hard": {
+        "ok": 7,
+        "total": 21
+      }
+    }
+  },
+  "delta": {
+    "absolute": 6,
+    "percentage_points": 11.5
+  },
+  "recovered": [
+    "Q11",
+    "Q13",
+    "Q14",
+    "Q21",
+    "Q26",
+    "Q33",
+    "Q35",
+    "Q42",
+    "Q43",
+    "Q47",
+    "Q48"
+  ],
+  "regressed": [
+    "Q05",
+    "Q15",
+    "Q29",
+    "Q38",
+    "Q46"
+  ],
+  "still_failing": [
+    "Q06",
+    "Q09",
+    "Q16",
+    "Q20",
+    "Q23",
+    "Q25",
+    "Q27",
+    "Q28",
+    "Q30",
+    "Q32",
+    "Q39",
+    "Q40",
+    "Q41",
+    "Q45",
+    "Q49",
+    "Q51",
+    "Q52"
+  ],
+  "still_ok_count": 19,
+  "failures_by_category": {
+    "baseline": {
+      "syntax_error": 3,
+      "zero_results": 24,
+      "timeout_or_exception": 1
+    },
+    "corrected": {
+      "zero_results": 17,
+      "syntax_error": 5
+    }
+  }
+}

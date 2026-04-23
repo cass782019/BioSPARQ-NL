@@ -1,0 +1,312 @@
+{
+  "model": "google/gemma-3-4b",
+  "ablations": {
+    "full_pipeline": {
+      "label": "Full Pipeline",
+      "overrides": {},
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 23,
+        "execution_rate": 0.7666666666666667,
+        "has_results": 15,
+        "results_rate": 0.5,
+        "meets_expected": 15,
+        "correctness_rate": 0.5,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 2.0,
+        "avg_time_seconds": 17.254551482200622,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 4,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.4
+          },
+          "medium": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 5,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.5
+          },
+          "hard": {
+            "total": 10,
+            "valid": 9,
+            "executed": 7,
+            "correct": 6,
+            "valid_rate": 0.9,
+            "exec_rate": 0.7,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_ner": {
+      "label": "- NER",
+      "overrides": {
+        "disable_ner": true
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 24,
+        "execution_rate": 0.8,
+        "has_results": 19,
+        "results_rate": 0.6333333333333333,
+        "meets_expected": 19,
+        "correctness_rate": 0.6333333333333333,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 1.8333333333333333,
+        "avg_time_seconds": 16.070028591156007,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 10,
+            "executed": 9,
+            "correct": 8,
+            "valid_rate": 1.0,
+            "exec_rate": 0.9,
+            "correct_rate": 0.8
+          },
+          "medium": {
+            "total": 10,
+            "valid": 10,
+            "executed": 8,
+            "correct": 6,
+            "valid_rate": 1.0,
+            "exec_rate": 0.8,
+            "correct_rate": 0.6
+          },
+          "hard": {
+            "total": 10,
+            "valid": 7,
+            "executed": 7,
+            "correct": 5,
+            "valid_rate": 0.7,
+            "exec_rate": 0.7,
+            "correct_rate": 0.5
+          }
+        }
+      }
+    },
+    "no_fewshot": {
+      "label": "- Few-shot",
+      "overrides": {
+        "top_k_examples": 0
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 20,
+        "execution_rate": 0.6666666666666666,
+        "has_results": 14,
+        "results_rate": 0.4666666666666667,
+        "meets_expected": 14,
+        "correctness_rate": 0.4666666666666667,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 1.9666666666666666,
+        "avg_time_seconds": 16.2121840318044,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 9,
+            "executed": 7,
+            "correct": 4,
+            "valid_rate": 0.9,
+            "exec_rate": 0.7,
+            "correct_rate": 0.4
+          },
+          "medium": {
+            "total": 10,
+            "valid": 8,
+            "executed": 6,
+            "correct": 4,
+            "valid_rate": 0.8,
+            "exec_rate": 0.6,
+            "correct_rate": 0.4
+          },
+          "hard": {
+            "total": 10,
+            "valid": 10,
+            "executed": 7,
+            "correct": 6,
+            "valid_rate": 1.0,
+            "exec_rate": 0.7,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_schema": {
+      "label": "- Schema",
+      "overrides": {
+        "disable_schema": true
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 23,
+        "syntactic_rate": 0.7666666666666667,
+        "execution_success": 18,
+        "execution_rate": 0.6,
+        "has_results": 14,
+        "results_rate": 0.4666666666666667,
+        "meets_expected": 14,
+        "correctness_rate": 0.4666666666666667,
+        "spot_check_total": 1,
+        "spot_check_pass": 1,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 2.1333333333333333,
+        "avg_time_seconds": 19.658182756106058,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 8,
+            "executed": 6,
+            "correct": 3,
+            "valid_rate": 0.8,
+            "exec_rate": 0.6,
+            "correct_rate": 0.3
+          },
+          "medium": {
+            "total": 10,
+            "valid": 8,
+            "executed": 6,
+            "correct": 5,
+            "valid_rate": 0.8,
+            "exec_rate": 0.6,
+            "correct_rate": 0.5
+          },
+          "hard": {
+            "total": 10,
+            "valid": 7,
+            "executed": 6,
+            "correct": 6,
+            "valid_rate": 0.7,
+            "exec_rate": 0.6,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_validation": {
+      "label": "- Validation",
+      "overrides": {
+        "max_retries": 0
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 20,
+        "syntactic_rate": 0.6666666666666666,
+        "execution_success": 18,
+        "execution_rate": 0.6,
+        "has_results": 15,
+        "results_rate": 0.5,
+        "meets_expected": 15,
+        "correctness_rate": 0.5,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 1.5333333333333334,
+        "avg_time_seconds": 16.474946562449137,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 5,
+            "executed": 4,
+            "correct": 4,
+            "valid_rate": 0.5,
+            "exec_rate": 0.4,
+            "correct_rate": 0.4
+          },
+          "medium": {
+            "total": 10,
+            "valid": 7,
+            "executed": 7,
+            "correct": 5,
+            "valid_rate": 0.7,
+            "exec_rate": 0.7,
+            "correct_rate": 0.5
+          },
+          "hard": {
+            "total": 10,
+            "valid": 8,
+            "executed": 7,
+            "correct": 6,
+            "valid_rate": 0.8,
+            "exec_rate": 0.7,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "zero_shot": {
+      "label": "Zero-shot",
+      "overrides": {
+        "disable_ner": true,
+        "top_k_examples": 0,
+        "disable_schema": true,
+        "max_retries": 0
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 26,
+        "syntactic_rate": 0.8666666666666667,
+        "execution_success": 23,
+        "execution_rate": 0.7666666666666667,
+        "has_results": 20,
+        "results_rate": 0.6666666666666666,
+        "meets_expected": 20,
+        "correctness_rate": 0.6666666666666666,
+        "spot_check_total": 0,
+        "spot_check_pass": 0,
+        "spot_check_rate": null,
+        "avg_attempts": 1.3,
+        "avg_time_seconds": 13.404645069440205,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 8,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.8
+          },
+          "medium": {
+            "total": 10,
+            "valid": 8,
+            "executed": 7,
+            "correct": 5,
+            "valid_rate": 0.8,
+            "exec_rate": 0.7,
+            "correct_rate": 0.5
+          },
+          "hard": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 7,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.7
+          }
+        }
+      }
+    }
+  }
+}

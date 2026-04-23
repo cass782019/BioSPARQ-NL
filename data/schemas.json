@@ -1,0 +1,1161 @@
+{
+  "urn:doid": {
+    "classes": [
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Class",
+        "label": "",
+        "count": 15732
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Axiom",
+        "label": "",
+        "count": 14507
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Restriction",
+        "label": "",
+        "count": 10462
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+        "label": "",
+        "count": 57
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#AllDisjointClasses",
+        "label": "",
+        "count": 18
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#ObjectProperty",
+        "label": "",
+        "count": 2
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Ontology",
+        "label": "",
+        "count": 1
+      }
+    ],
+    "predicates": [
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
+        "count": 53773,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+        "count": 26409,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ]
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
+        "count": 21970,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#label",
+        "count": 14655,
+        "domains": [],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasOBONamespace",
+        "count": 14591,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#id",
+        "count": 14590,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#annotatedSource",
+        "count": 14507,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#annotatedTarget",
+        "count": 14507,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#annotatedProperty",
+        "count": 14507,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
+        "count": 10737,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#onProperty",
+        "count": 10462,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#someValuesFrom",
+        "count": 10454,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0000115",
+        "count": 10449,
+        "domains": [],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/type",
+        "count": 10260,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasSynonymType",
+        "count": 4056,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+        "count": 2629,
+        "domains": [],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+        "count": 2629,
+        "domains": [],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#deprecated",
+        "count": 2511,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+        "count": 1736,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
+        "count": 1289,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#comment",
+        "count": 1288,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#Axiom",
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#intersectionOf",
+        "count": 1006,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#creation_date",
+        "count": 766,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#equivalentClass",
+        "count": 725,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym",
+        "count": 499,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#unionOf",
+        "count": 136,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#broadMatch",
+        "count": 84,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym",
+        "count": 82,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+        "count": 35,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym",
+        "count": 32,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
+        "count": 29,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "count": 29,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0100001",
+        "count": 28,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+        "count": 20,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#members",
+        "count": 18,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#AllDisjointClasses"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#created_by",
+        "count": 14,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty",
+        "count": 8,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#disjointWith",
+        "count": 8,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#onClass",
+        "count": 8,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#qualifiedCardinality",
+        "count": 5,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/OBI_9991118",
+        "count": 4,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#minQualifiedCardinality",
+        "count": 3,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#consider",
+        "count": 2,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/description",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/language",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/title",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/terms/license",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#date",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#default-namespace",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#saved-by",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#imports",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#versionIRI",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#versionInfo",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0000700",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      }
+    ]
+  },
+  "urn:hpo": {
+    "classes": [
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Axiom",
+        "label": "",
+        "count": 61410
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Class",
+        "label": "",
+        "count": 47014
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Restriction",
+        "label": "",
+        "count": 43479
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#ObjectProperty",
+        "label": "",
+        "count": 235
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#AnnotationProperty",
+        "label": "",
+        "count": 126
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#TransitiveProperty",
+        "label": "",
+        "count": 30
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#SymmetricProperty",
+        "label": "",
+        "count": 7
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#AllDisjointClasses",
+        "label": "",
+        "count": 2
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+        "label": "",
+        "count": 2
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#AsymmetricProperty",
+        "label": "",
+        "count": 1
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty",
+        "label": "",
+        "count": 1
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
+        "label": "",
+        "count": 1
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#Ontology",
+        "label": "",
+        "count": 1
+      }
+    ],
+    "predicates": [
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasDbXref",
+        "count": 111204,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#onProperty",
+        "count": 69182,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+          "http://www.w3.org/2002/07/owl#AsymmetricProperty"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#annotatedSource",
+        "count": 61411,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#annotatedProperty",
+        "count": 61410,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#annotatedTarget",
+        "count": 61410,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+        "count": 55989,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#someValuesFrom",
+        "count": 43432,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym",
+        "count": 43287,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+        "count": 38093,
+        "domains": [],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+        "count": 38027,
+        "domains": [],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#label",
+        "count": 32795,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
+          "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+          "http://www.w3.org/2002/07/owl#AsymmetricProperty",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0000115",
+        "count": 28300,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
+          "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+          "http://www.w3.org/2002/07/owl#AsymmetricProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#id",
+        "count": 21605,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#intersectionOf",
+        "count": 14796,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym",
+        "count": 13695,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasSynonymType",
+        "count": 13539,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://purl.org/dc/terms/date",
+        "count": 13478,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#equivalentClass",
+        "count": 12883,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ]
+      },
+      {
+        "uri": "http://purl.org/dc/terms/creator",
+        "count": 11219,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#inSubset",
+        "count": 10726,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasAlternativeId",
+        "count": 5885,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#comment",
+        "count": 5613,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Ontology",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/terms/contributor",
+        "count": 4997,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasNarrowSynonym",
+        "count": 2302,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0000233",
+        "count": 1699,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#hasBroadSynonym",
+        "count": 1362,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#creation_date",
+        "count": 1242,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#deprecated",
+        "count": 556,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0100001",
+        "count": 461,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+        "count": 400,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty",
+          "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+          "http://www.w3.org/2002/07/owl#AsymmetricProperty"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
+          "http://www.w3.org/2002/07/owl#AnnotationProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#disjointWith",
+        "count": 285,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#unionOf",
+        "count": 133,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#consider",
+        "count": 82,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#inverseOf",
+        "count": 74,
+        "domains": [],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
+          "http://www.w3.org/2002/07/owl#IrreflexiveProperty"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#propertyChainAxiom",
+        "count": 69,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#SymmetricProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/date",
+        "count": 63,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#onClass",
+        "count": 45,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#qualifiedCardinality",
+        "count": 40,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#domain",
+        "count": 31,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
+          "http://www.w3.org/2002/07/owl#AsymmetricProperty"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ]
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#range",
+        "count": 21,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class",
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ]
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#shorthand",
+        "count": 10,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#ObjectProperty",
+          "http://www.w3.org/2002/07/owl#TransitiveProperty",
+          "http://www.w3.org/2002/07/owl#FunctionalProperty"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#minQualifiedCardinality",
+        "count": 5,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/creator",
+        "count": 4,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#members",
+        "count": 2,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#AllDisjointClasses"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#hasSelf",
+        "count": 2,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Restriction"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#SynonymTypeProperty",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Axiom"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        ]
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/description",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/rights",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/subject",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/elements/1.1/title",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.org/dc/terms/license",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#default-namespace",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.geneontology.org/formats/oboInOwl#logical-definition-view-relation",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2002/07/owl#versionIRI",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://purl.obolibrary.org/obo/IAO_0000700",
+        "count": 1,
+        "domains": [
+          "http://www.w3.org/2002/07/owl#Ontology"
+        ],
+        "ranges": [
+          "http://www.w3.org/2002/07/owl#Class"
+        ]
+      }
+    ]
+  },
+  "urn:hpoa": {
+    "classes": [
+      {
+        "uri": "http://example.org/hpoa/Disease",
+        "label": "",
+        "count": 12996
+      }
+    ],
+    "predicates": [
+      {
+        "uri": "http://example.org/hpoa/has_phenotype",
+        "count": 281399,
+        "domains": [
+          "http://example.org/hpoa/Disease"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://www.w3.org/2000/01/rdf-schema#label",
+        "count": 13050,
+        "domains": [
+          "http://example.org/hpoa/Disease"
+        ],
+        "ranges": []
+      },
+      {
+        "uri": "http://example.org/hpoa/source_id",
+        "count": 12996,
+        "domains": [
+          "http://example.org/hpoa/Disease"
+        ],
+        "ranges": []
+      }
+    ]
+  }
+}
