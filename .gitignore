@@ -20,3 +20,8 @@ data/annotations/hpoa.ttl
 data/gold_standard/questions.index
 *.egg-info/
 .pytest_cache/
+output/relatorio/__MACOSX/
+output/*.aux
+output/*.log
+output/log_*.txt
+docsfhir/

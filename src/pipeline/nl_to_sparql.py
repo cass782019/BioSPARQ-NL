@@ -256,7 +256,43 @@ REGRAS:
         # Substitui hpo:HumanPhenotype pelo URI raiz de fenotipos
         query = re.sub(r"\bhpo:HumanPhenotype\b", "obo:HP_0000118", query)
 
-        # 7. Corrigir BIND com auto-referencia: BIND(REPLACE(STR(?x),...) AS ?x)
+        # 7. Mover FILTERs que aparecem APOS o fechamento do WHERE para dentro dele
+        #    Nemotron coloca FILTERs depois de "}" causando parse error "Expected end of text"
+        #    Estrategia: percorrer o query para encontrar o ultimo "}" do WHERE e mover FILTERs
+        lines = query.splitlines()
+        # Encontrar linhas que sao apenas FILTER e aparecem apos todo GRAPH { }
+        # Abordagem simplificada: se a ultima linha nao-branca antes de um FILTER fecha um bloco
+        # e nao e um GRAPH/subquery aberto, e o FILTER esta solto, move para dentro.
+        # Implementacao: reconstruir query inserindo FILTERs soltos antes do ultimo "}"
+        result_lines = []
+        pending_filters = []
+        brace_depth = 0
+        last_close_idx = -1  # index onde o ultimo "}" aparece
+
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            brace_depth += stripped.count("{") - stripped.count("}")
+            if brace_depth == 0 and stripped == "}":
+                last_close_idx = i
+            result_lines.append(line)
+
+        if last_close_idx >= 0:
+            # Coletar FILTERs que aparecem depois do ultimo "}"
+            after = result_lines[last_close_idx + 1:]
+            before_and_close = result_lines[:last_close_idx + 1]
+            filters_to_move = [l for l in after if l.strip().upper().startswith("FILTER")]
+            remaining_after = [l for l in after if not l.strip().upper().startswith("FILTER")]
+            if filters_to_move:
+                # Inserir FILTERs antes do ultimo "}"
+                new_lines = (
+                    before_and_close[:-1]        # tudo exceto o ultimo "}"
+                    + ["  " + f.strip() for f in filters_to_move]
+                    + [before_and_close[-1]]     # o ultimo "}"
+                    + remaining_after
+                )
+                query = "\n".join(new_lines)
+
+        # 8. Corrigir BIND com auto-referencia: BIND(REPLACE(STR(?x),...) AS ?x)
         #    Jena rejeita: "Variable used when already in-scope in BIND"
         #    Fix: renomeia ocorrencias de ?x somente ANTES do BIND para ?x_mim
         bind_self_re = re.compile(
