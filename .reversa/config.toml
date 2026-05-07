@@ -1,0 +1,31 @@
+﻿# Reversa — Configuração do Projeto
+
+[project]
+name = "FHIRV2"
+version = "1.0.0"
+
+[user]
+name = "Cassiano"
+chat_language = "pt-br"
+doc_language = "Português"
+
+[output]
+folder = "_reversa_sdd"
+
+[agents]
+installed = [
+  "reversa", "reversa-scout", "reversa-archaeologist",
+  "reversa-detective", "reversa-architect", "reversa-writer",
+  "reversa-reviewer", "reversa-visor", "reversa-data-master",
+  "reversa-design-system", "reversa-agents-help",
+  "reversa-reconstructor", "reversa-migrate",
+  "reversa-paradigm-advisor", "reversa-curator",
+  "reversa-strategist", "reversa-designer", "reversa-inspector"
+]
+
+[engines]
+installed = ["claude-code", "codex", "cursor", "gemini-cli", "windsurf", "antigravity", "opencode", "github-copilot"]
+
+[analysis]
+answer_mode = "chat"
+doc_level = "detalhado"

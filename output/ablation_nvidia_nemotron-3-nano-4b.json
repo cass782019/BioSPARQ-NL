@@ -1,0 +1,312 @@
+{
+  "model": "nvidia/nemotron-3-nano-4b",
+  "ablations": {
+    "full_pipeline": {
+      "label": "Full Pipeline",
+      "overrides": {},
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 22,
+        "execution_rate": 0.7333333333333333,
+        "has_results": 16,
+        "results_rate": 0.5333333333333333,
+        "meets_expected": 16,
+        "correctness_rate": 0.5333333333333333,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 2.1666666666666665,
+        "avg_time_seconds": 57.64366056919098,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 10,
+            "executed": 8,
+            "correct": 7,
+            "valid_rate": 1.0,
+            "exec_rate": 0.8,
+            "correct_rate": 0.7
+          },
+          "medium": {
+            "total": 10,
+            "valid": 8,
+            "executed": 6,
+            "correct": 3,
+            "valid_rate": 0.8,
+            "exec_rate": 0.6,
+            "correct_rate": 0.3
+          },
+          "hard": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 6,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_ner": {
+      "label": "- NER",
+      "overrides": {
+        "disable_ner": true
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 25,
+        "syntactic_rate": 0.8333333333333334,
+        "execution_success": 24,
+        "execution_rate": 0.8,
+        "has_results": 19,
+        "results_rate": 0.6333333333333333,
+        "meets_expected": 19,
+        "correctness_rate": 0.6333333333333333,
+        "spot_check_total": 1,
+        "spot_check_pass": 1,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 2.1333333333333333,
+        "avg_time_seconds": 53.28465345700582,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 7,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.7
+          },
+          "medium": {
+            "total": 10,
+            "valid": 9,
+            "executed": 9,
+            "correct": 6,
+            "valid_rate": 0.9,
+            "exec_rate": 0.9,
+            "correct_rate": 0.6
+          },
+          "hard": {
+            "total": 10,
+            "valid": 7,
+            "executed": 7,
+            "correct": 6,
+            "valid_rate": 0.7,
+            "exec_rate": 0.7,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_fewshot": {
+      "label": "- Few-shot",
+      "overrides": {
+        "top_k_examples": 0
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 25,
+        "execution_rate": 0.8333333333333334,
+        "has_results": 21,
+        "results_rate": 0.7,
+        "meets_expected": 21,
+        "correctness_rate": 0.7,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 2.0,
+        "avg_time_seconds": 49.581174906094866,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 9,
+            "executed": 9,
+            "correct": 8,
+            "valid_rate": 0.9,
+            "exec_rate": 0.9,
+            "correct_rate": 0.8
+          },
+          "medium": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 7,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.7
+          },
+          "hard": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 6,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_schema": {
+      "label": "- Schema",
+      "overrides": {
+        "disable_schema": true
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 21,
+        "execution_rate": 0.7,
+        "has_results": 20,
+        "results_rate": 0.6666666666666666,
+        "meets_expected": 20,
+        "correctness_rate": 0.6666666666666666,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 2.1,
+        "avg_time_seconds": 70.65237371126811,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 10,
+            "executed": 9,
+            "correct": 8,
+            "valid_rate": 1.0,
+            "exec_rate": 0.9,
+            "correct_rate": 0.8
+          },
+          "medium": {
+            "total": 10,
+            "valid": 9,
+            "executed": 6,
+            "correct": 6,
+            "valid_rate": 0.9,
+            "exec_rate": 0.6,
+            "correct_rate": 0.6
+          },
+          "hard": {
+            "total": 10,
+            "valid": 8,
+            "executed": 6,
+            "correct": 6,
+            "valid_rate": 0.8,
+            "exec_rate": 0.6,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    },
+    "no_validation": {
+      "label": "- Validation",
+      "overrides": {
+        "max_retries": 0
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 23,
+        "syntactic_rate": 0.7666666666666667,
+        "execution_success": 19,
+        "execution_rate": 0.6333333333333333,
+        "has_results": 16,
+        "results_rate": 0.5333333333333333,
+        "meets_expected": 16,
+        "correctness_rate": 0.5333333333333333,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 1.6333333333333333,
+        "avg_time_seconds": 45.64273680051168,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 9,
+            "executed": 9,
+            "correct": 8,
+            "valid_rate": 0.9,
+            "exec_rate": 0.9,
+            "correct_rate": 0.8
+          },
+          "medium": {
+            "total": 10,
+            "valid": 7,
+            "executed": 5,
+            "correct": 4,
+            "valid_rate": 0.7,
+            "exec_rate": 0.5,
+            "correct_rate": 0.4
+          },
+          "hard": {
+            "total": 10,
+            "valid": 7,
+            "executed": 5,
+            "correct": 4,
+            "valid_rate": 0.7,
+            "exec_rate": 0.5,
+            "correct_rate": 0.4
+          }
+        }
+      }
+    },
+    "zero_shot": {
+      "label": "Zero-shot",
+      "overrides": {
+        "disable_ner": true,
+        "top_k_examples": 0,
+        "disable_schema": true,
+        "max_retries": 0
+      },
+      "metrics": {
+        "total": 30,
+        "syntactically_valid": 27,
+        "syntactic_rate": 0.9,
+        "execution_success": 24,
+        "execution_rate": 0.8,
+        "has_results": 21,
+        "results_rate": 0.7,
+        "meets_expected": 20,
+        "correctness_rate": 0.6666666666666666,
+        "spot_check_total": 2,
+        "spot_check_pass": 2,
+        "spot_check_rate": 1.0,
+        "avg_attempts": 1.5666666666666667,
+        "avg_time_seconds": 51.493892804781595,
+        "by_difficulty": {
+          "easy": {
+            "total": 10,
+            "valid": 8,
+            "executed": 8,
+            "correct": 8,
+            "valid_rate": 0.8,
+            "exec_rate": 0.8,
+            "correct_rate": 0.8
+          },
+          "medium": {
+            "total": 10,
+            "valid": 10,
+            "executed": 8,
+            "correct": 6,
+            "valid_rate": 1.0,
+            "exec_rate": 0.8,
+            "correct_rate": 0.6
+          },
+          "hard": {
+            "total": 10,
+            "valid": 9,
+            "executed": 8,
+            "correct": 6,
+            "valid_rate": 0.9,
+            "exec_rate": 0.8,
+            "correct_rate": 0.6
+          }
+        }
+      }
+    }
+  }
+}

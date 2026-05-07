@@ -1,0 +1,29 @@
+﻿{
+  "version": "1.2.28",
+  "project": "FHIRV2",
+  "user_name": "Cassiano",
+  "chat_language": "pt-br",
+  "doc_language": "Português",
+  "answer_mode": "chat",
+  "doc_level": "detalhado",
+  "output_folder": "_reversa_sdd",
+  "forward_folder": "_reversa_forward",
+  "phase": "revisao",
+  "completed": ["reconhecimento", "escavacao", "interpretacao", "geracao"],
+  "pending": ["revisao"],
+  "checkpoints": {
+    "scout": {"completed_at": "2026-05-06T07:39:00-03:00"},
+    "archaeologist": {"completed_at": "2026-05-06T12:18:00Z"},
+    "detective": {"completed_at": "2026-05-06T12:35:00Z"},
+    "architect": {"completed_at": "2026-05-06T12:50:00Z"}
+  },
+  "redator_progress": {
+    "phase": "concluido",
+    "total_files_generated": 58,
+    "completed_units": ["api", "service", "client", "oauth", "mapper", "config", "utils", "validation", "swagger-doc-open-tasy"],
+    "last_saved": "2026-05-07T11:30:00-03:00"
+  },
+  "engines": ["claude-code", "codex", "cursor", "gemini-cli", "windsurf", "antigravity", "opencode", "github-copilot"],
+  "agents": ["reversa", "reversa-scout", "reversa-archaeologist", "reversa-detective", "reversa-architect", "reversa-writer", "reversa-reviewer", "reversa-visor", "reversa-data-master", "reversa-design-system", "reversa-agents-help", "reversa-reconstructor", "reversa-migrate", "reversa-paradigm-advisor", "reversa-curator", "reversa-strategist", "reversa-designer", "reversa-inspector"],
+  "created_files": []
+}

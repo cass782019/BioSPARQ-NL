@@ -21,7 +21,11 @@ class BioSPARQLPipeline:
     def __init__(self, config=None):
         # Permite sobrescrever via env var (util para trocar sem editar codigo)
         default_model = os.getenv("LLM_MODEL", "auto")
-        default_llm_timeout = float(os.getenv("LLM_TIMEOUT", "300"))
+        try:
+            default_llm_timeout = float(os.getenv("LLM_TIMEOUT", "300"))
+        except ValueError:
+            logger.warning("LLM_TIMEOUT invalido, usando 300s")
+            default_llm_timeout = 300.0
         self.config = config or {
             "endpoint": "http://localhost:3030/biomedical/sparql",
             "lm_studio_url": "http://localhost:1234/v1",
@@ -76,13 +80,21 @@ class BioSPARQLPipeline:
             self._embedder = SentenceTransformer("all-MiniLM-L6-v2")
         return self._embedder
 
-    def retrieve_examples(self, question: str, top_k: int = 3) -> list:
-        """Busca exemplos similares via FAISS. Fallback: lista vazia."""
+    def retrieve_examples(self, question: str, top_k: int = 3, exclude_id: str = None) -> list:
+        """Busca exemplos similares via FAISS. Fallback: lista vazia.
+
+        exclude_id: filtra a propria questao do retrieval (anti data-leak na avaliacao).
+        """
         if self.index is None or not self.examples:
             return []
+        # Buscar top_k+1 para sobrar caso exclude_id remova um
+        k_search = top_k + (1 if exclude_id else 0)
         q_emb = self.embedder.encode([question], normalize_embeddings=True)
-        D, I = self.index.search(q_emb.astype(np.float32), k=top_k)
-        return [self.examples[i] for i in I[0] if i < len(self.examples)]
+        D, I = self.index.search(q_emb.astype(np.float32), k=k_search)
+        results = [self.examples[i] for i in I[0] if i < len(self.examples)]
+        if exclude_id:
+            results = [r for r in results if r.get("id") != exclude_id]
+        return results[:top_k]
 
     def build_prompt(self, question: str, examples: list, feedback: str = None):
         """Monta prompt com entidades resolvidas + exemplos + schema."""
@@ -130,7 +142,7 @@ IDIOMA: Labels em INGLES. Traduza termos PT->EN nos FILTER (febre->fever, dor->p
 
 REGRAS:
 1. Use GRAPH <urn:...> em todo triple pattern.
-2. Filtre por nome: rdfs:label ?l . FILTER(CONTAINS(LCASE(?l),"termo_ingles"))
+2. Para filtrar por nome use rdfs:label e FILTER(CONTAINS(LCASE(?label), <termo da pergunta em ingles>)). Substitua pelo termo real da pergunta - nunca use o nome de um placeholder literalmente.
 3. DOID<->HPOA join: GRAPH <urn:doid> {{ ?d oboInOwl:hasDbXref ?mim . FILTER(STRSTARTS(STR(?mim),"MIM:")) BIND(REPLACE(STR(?mim),"^MIM:","OMIM:") AS ?oid) }} GRAPH <urn:hpoa> {{ ?a hpoa:source_id ?oid }}
 4. has_phenotype/source_id/rdfs:label de doencas so em <urn:hpoa>; rdfs:label de fenotipos em <urn:hpo>.
 5. GROUP BY inclui todas variaveis nao-agregadas.
@@ -382,12 +394,13 @@ REGRAS:
         "(4) NAO use doid:, hpo: como prefixos."
     )
 
-    def run(self, question: str) -> dict:
+    def run(self, question: str, question_id: str = None) -> dict:
         """Pipeline completo com loop de validacao/correcao + semantic retry.
 
+        question_id: opcional, exclui a propria questao do few-shot (anti data-leak).
         Retorna: {question, sparql, validation, execution, attempts, success}
         """
-        examples = self.retrieve_examples(question)
+        examples = self.retrieve_examples(question, exclude_id=question_id)
 
         feedback = None
         semantic_retry_used = False

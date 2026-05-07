@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-05-04T00:00:00Z",
+  "project_root": "C:/Users/cass7/proj1",
+  "project_name": "BioSPARQL-NL",
+  "languages": [
+    { "name": "Python", "extensions": [".py"], "file_count": 57 },
+    { "name": "JSON", "extensions": [".json"], "file_count": 18 },
+    { "name": "JSX (React)", "extensions": [".jsx"], "file_count": 10 },
+    { "name": "Markdown", "extensions": [".md"], "file_count": 8 },
+    { "name": "JSONL", "extensions": [".jsonl"], "file_count": 6 },
+    { "name": "Turtle (RDF)", "extensions": [".ttl"], "file_count": 2 },
+    { "name": "OWL", "extensions": [".owl"], "file_count": 2 },
+    { "name": "JavaScript", "extensions": [".js"], "file_count": 1 }
+  ],
+  "primary_language": "Python",
+  "frameworks": [
+    { "name": "FastAPI", "version": "0.135.3", "source": "requirements.txt" },
+    { "name": "Uvicorn", "version": "0.44.0", "source": "requirements.txt" },
+    { "name": "Pydantic", "version": "2.12.5", "source": "requirements.txt" },
+    { "name": "React", "version": "18.3.1", "source": "frontend/package.json" },
+    { "name": "Vite", "version": "5.4.0", "source": "frontend/package.json" },
+    { "name": "scispaCy", "version": "0.6.2", "source": "requirements.txt" },
+    { "name": "spaCy", "version": "3.7.5", "source": "requirements.txt" },
+    { "name": "sentence-transformers", "version": "5.4.0", "source": "requirements.txt" },
+    { "name": "FAISS-CPU", "version": "1.13.2", "source": "requirements.txt" },
+    { "name": "SPARQLWrapper", "version": "2.0.0", "source": "requirements.txt" },
+    { "name": "rdflib", "version": "7.6.0", "source": "requirements.txt" },
+    { "name": "OpenAI SDK", "version": "2.31.0", "source": "requirements.txt" },
+    { "name": "Anthropic SDK", "version": ">=0.45.0", "source": "requirements.txt" },
+    { "name": "PyTorch", "version": "2.11.0", "source": "requirements.txt" },
+    { "name": "Apache Jena Fuseki", "version": "6.0.0", "source": "tools/apache-jena-fuseki-6.0.0/" }
+  ],
+  "package_manager": "pip + npm",
+  "entry_points": [
+    { "path": "src/api/server.py", "type": "server_entry", "description": "FastAPI backend — uvicorn porta 8000" },
+    { "path": "frontend/src/main.jsx", "type": "app_entry", "description": "React frontend — Vite porta 5173" },
+    { "path": "src/evaluation/run_evaluation.py", "type": "cli_entry", "description": "Avaliação single-model" },
+    { "path": "src/evaluation/run_all_models.py", "type": "cli_entry", "description": "Avaliação multi-model" },
+    { "path": "src2/evaluation/run_all_models.py", "type": "cli_entry", "description": "Avaliação src2 (ClaudeCLI + Playwright)" },
+    { "path": "src2/evaluation/playwright_runner.py", "type": "cli_entry", "description": "E2E via browser (30 questões)" },
+    { "path": "gates/gate0_check.py", "type": "cli_entry", "description": "Gate 0: deps" },
+    { "path": "gates/gate1_check.py", "type": "cli_entry", "description": "Gate 1: dados" },
+    { "path": "gates/gate2_check.py", "type": "cli_entry", "description": "Gate 2: pipeline" },
+    { "path": "gates/gate3_check.py", "type": "cli_entry", "description": "Gate 3: avaliação" },
+    { "path": "gates/gate6_check.py", "type": "cli_entry", "description": "Gate 6: final" }
+  ],
+  "config_files": [
+    ".env.example",
+    "pytest.ini",
+    "frontend/vite.config.js",
+    "frontend/package.json",
+    "requirements.txt",
+    "data/schemas.json",
+    "run/config.ttl",
+    "run/shiro.ini"
+  ],
+  "ci_cd": [],
+  "docker": null,
+  "database_hints": [
+    { "path": "data/ontologies/doid.owl", "type": "owl_ontology", "graph": "urn:doid", "triples": "~302K" },
+    { "path": "data/ontologies/hp.owl", "type": "owl_ontology", "graph": "urn:hpo", "triples": "~908K" },
+    { "path": "data/annotations/hpoa.ttl", "type": "turtle_rdf", "graph": "urn:hpoa", "triples": "~320K" },
+    { "path": "data/annotations/phenotype.hpoa", "type": "tsv_source", "description": "Fonte HPOA pré-conversão" },
+    { "path": "data/schemas.json", "type": "sparql_schema", "description": "Schema extraído por introspecção SPARQL" },
+    { "path": "data/gold_standard/questions.index", "type": "faiss_index", "description": "FAISS index 384d (sentence-transformers)" }
+  ],
+  "test_framework": "pytest",
+  "test_file_count": 5,
+  "test_markers": ["unit", "integration", "regression", "fuseki", "ollama"],
+  "e2e_framework": "Playwright",
+  "modules": [
+    "pipeline",
+    "api",
+    "evaluation",
+    "utils",
+    "ner",
+    "frontend",
+    "src2",
+    "gates"
+  ],
+  "total_files": 120,
+  "external_services": [
+    { "name": "Apache Jena Fuseki", "url": "http://localhost:3030/biomedical", "purpose": "SPARQL triplestore" },
+    { "name": "LM Studio", "url": "http://localhost:1234/v1", "purpose": "LLM local (OpenAI-compat)" },
+    { "name": "Anthropic API", "url": "cloud", "purpose": "Claude Sonnet (upper bound)" }
+  ],
+  "organization_suggestion": {
+    "granularity": "module",
+    "rationale": "O projeto tem subpastas funcionais claras dentro de src/ (pipeline/, api/, evaluation/, utils/, ner/) e módulos de primeiro nível distintos (frontend/, src2/, gates/), caracterizando organização por domínio/módulo.",
+    "signals": [
+      {
+        "type": "top_level_domain_folders",
+        "evidence": [
+          "src/pipeline/",
+          "src/api/",
+          "src/evaluation/",
+          "src/utils/",
+          "src/pipeline/ner/",
+          "frontend/",
+          "src2/",
+          "gates/"
+        ]
+      }
+    ],
+    "features": []
+  }
+}

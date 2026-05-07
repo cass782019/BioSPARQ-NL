@@ -72,13 +72,20 @@ class BioSPARQLPipeline:
             self._embedder = SentenceTransformer("all-MiniLM-L6-v2")
         return self._embedder
 
-    def retrieve_examples(self, question: str, top_k: int = 3) -> list:
-        """Busca exemplos similares via FAISS. Fallback: lista vazia."""
+    def retrieve_examples(self, question: str, top_k: int = 3, exclude_id: str = None) -> list:
+        """Busca exemplos similares via FAISS. Fallback: lista vazia.
+
+        exclude_id: filtra a propria questao do retrieval (anti data-leak na avaliacao).
+        """
         if self.index is None or not self.examples or top_k <= 0:
             return []
+        k_search = top_k + (1 if exclude_id else 0)
         q_emb = self.embedder.encode([question], normalize_embeddings=True)
-        D, I = self.index.search(q_emb.astype(np.float32), k=top_k)
-        return [self.examples[i] for i in I[0] if i < len(self.examples)]
+        D, I = self.index.search(q_emb.astype(np.float32), k=k_search)
+        results = [self.examples[i] for i in I[0] if i < len(self.examples)]
+        if exclude_id:
+            results = [r for r in results if r.get("id") != exclude_id]
+        return results[:top_k]
 
     def build_prompt(self, question: str, examples: list, feedback: str = None):
         """Monta prompt com entidades resolvidas + exemplos + schema."""
@@ -218,9 +225,16 @@ REGRAS:
                     "count": 0,
                 }
 
-    def run(self, question: str) -> dict:
-        """Pipeline completo com loop de validacao/correcao."""
-        examples = self.retrieve_examples(question, top_k=self.config.get("top_k_examples", 3))
+    def run(self, question: str, question_id: str = None) -> dict:
+        """Pipeline completo com loop de validacao/correcao.
+
+        question_id: opcional, exclui a propria questao do few-shot (anti data-leak).
+        """
+        examples = self.retrieve_examples(
+            question,
+            top_k=self.config.get("top_k_examples", 3),
+            exclude_id=question_id,
+        )
 
         feedback = None
         for attempt in range(1, self.config["max_retries"] + 2):

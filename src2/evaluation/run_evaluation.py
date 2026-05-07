@@ -24,7 +24,7 @@ def evaluate(pipeline, questions, use_validation=True):
     for q in questions:
         start = time.time()
         try:
-            r = pipeline.run(q["question_en"])
+            r = pipeline.run(q["question_en"], question_id=q["id"])
         except Exception as e:
             logger.error(f"{q['id']} failed: {e}")
             r = {

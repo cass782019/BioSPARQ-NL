@@ -33,17 +33,17 @@ try:
 except Exception:
     checks.append(("scispaCy model", False, "model not found"))
 
-# 0c. Ollama acessível + modelo
+# 0c. LM Studio acessivel + modelo carregado
 try:
     import requests
-    r = requests.get("http://localhost:11434/api/tags", timeout=5)
-    models = [m["name"] for m in r.json().get("models", [])]
-    checks.append(("Ollama", True, f"models: {models}"))
-    has_model = any("qwen" in m or "llama" in m for m in models)
-    checks.append(("LLM model", has_model, "found" if has_model else "NOT FOUND"))
+    r = requests.get("http://localhost:1234/v1/models", timeout=5)
+    models = [m["id"] for m in r.json().get("data", [])]
+    checks.append(("LM Studio", True, f"models: {models}"))
+    has_model = bool(models)
+    checks.append(("LLM model", has_model, "loaded" if has_model else "no model loaded"))
 except Exception:
-    checks.append(("Ollama", False, "offline"))
-    checks.append(("LLM model", False, "Ollama offline"))
+    checks.append(("LM Studio", False, "offline (start LM Studio + load a model)"))
+    checks.append(("LLM model", False, "LM Studio offline"))
 
 # 0d. Java
 try:

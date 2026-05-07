@@ -1,0 +1,243 @@
+openapi: "3.1.0"
+info:
+  title: BioSPARQL-NL
+  version: "1.0.0"
+  description: >
+    API REST para tradução de perguntas em linguagem natural para SPARQL
+    sobre ontologias biomédicas (DOID + HPO + HPOA) com painel de
+    explicabilidade (XAI).
+  contact:
+    name: Cassiano Ricardo Neubauer Moralles
+    email: cass78@gmail.com
+
+# Extraído de src/api/server.py — gerado pelo Redator Reversa em 2026-05-04
+# Confiança: 🟢 CONFIRMADO (derivado diretamente dos modelos Pydantic e decoradores FastAPI)
+
+servers:
+  - url: http://localhost:8000
+    description: Servidor local FastAPI (uvicorn)
+
+tags:
+  - name: health
+    description: Verificação de saúde do serviço
+  - name: pipeline
+    description: Execução do pipeline NL→SPARQL
+
+paths:
+  /api/health:
+    get:
+      operationId: health
+      tags: [health]
+      summary: Verifica se o serviço está no ar
+      description: >
+        Retorna `{"status": "ok"}` se o servidor FastAPI está respondendo.
+        Não verifica disponibilidade do pipeline (LLM ou Fuseki) — apenas
+        confirma que o processo está vivo.
+      responses:
+        "200":
+          description: Serviço disponível
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+              example:
+                status: "ok"
+
+  /api/ask:
+    post:
+      operationId: ask
+      tags: [pipeline]
+      summary: Traduz pergunta NL para SPARQL e executa no Fuseki
+      description: >
+        Recebe uma pergunta em português, executa o pipeline completo
+        (NER → few-shot retrieval → geração LLM → validação de schema →
+        loop de autocorreção → execução Fuseki) e retorna a resposta
+        em linguagem natural mais o painel XAI completo.
+
+        O pipeline é inicializado de forma lazy na primeira chamada
+        (pode levar alguns segundos extras na primeira requisição).
+
+        **CORS permitido:** `http://localhost:5173` (Vite dev) e
+        `http://localhost:3000` (Playwright).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AskRequest"
+            example:
+              question: "Quais fenótipos estão associados à síndrome de Marfan?"
+      responses:
+        "200":
+          description: Pipeline executado com sucesso (ou falha capturada — success=false)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AskResponse"
+              example:
+                answer: "Encontrados 12 resultados:\n- Arachnodactyly\n- Tall stature\n- ..."
+                success: true
+                xai:
+                  entities: ["Marfan syndrome"]
+                  examples_used:
+                    - id: "Q01"
+                      difficulty: "easy"
+                      question_en: "What phenotypes are associated with Marfan syndrome?"
+                  sparql: "PREFIX rdfs: <...>\nSELECT ?label WHERE { ... }"
+                  validation:
+                    valid: true
+                    errors: []
+                    warnings: []
+                  attempts: 1
+                  results_raw:
+                    - label: {type: literal, value: "Arachnodactyly"}
+                  results_count: 12
+                  timing:
+                    ner_s: 0.12
+                    retrieval_s: 0.03
+                    llm_s: 8.47
+                    total_s: 8.62
+        "400":
+          description: Pergunta vazia
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+              example:
+                detail: "Empty question"
+
+components:
+  schemas:
+
+    AskRequest:
+      type: object
+      required: [question]
+      properties:
+        question:
+          type: string
+          description: Pergunta em português (ou inglês) a ser traduzida para SPARQL
+          minLength: 1
+          example: "Quais doenças estão associadas ao fenótipo aracnodactilia?"
+
+    AskResponse:
+      type: object
+      required: [answer, success, xai]
+      properties:
+        answer:
+          type: string
+          description: Resposta em linguagem natural formatada a partir dos resultados do Fuseki
+        success:
+          type: boolean
+          description: >
+            True se o pipeline executou e o Fuseki retornou ao menos 1 resultado.
+            False se ocorreu erro interno (capturado) — a resposta ainda é retornada com HTTP 200.
+        xai:
+          $ref: "#/components/schemas/ExplainabilityInfo"
+
+    ExplainabilityInfo:
+      type: object
+      required: [entities, examples_used, sparql, validation, attempts, results_raw, results_count, timing]
+      description: Painel de explicabilidade — expõe todo o processo interno do pipeline
+      properties:
+        entities:
+          type: array
+          items:
+            type: string
+          description: Entidades biomédicas extraídas pelo NER (labels textuais)
+        examples_used:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExampleUsed"
+          description: Exemplos few-shot recuperados do gold standard via FAISS
+        sparql:
+          type: string
+          description: Query SPARQL final gerada (após pós-processamento e correções)
+        validation:
+          $ref: "#/components/schemas/ValidationInfo"
+        attempts:
+          type: integer
+          description: Número de tentativas do loop de autocorreção (1 = primeira tentativa funcionou)
+          minimum: 0
+        results_raw:
+          type: array
+          items:
+            type: object
+          description: Bindings SPARQL brutos retornados pelo Fuseki (formato JSON SPARQL)
+        results_count:
+          type: integer
+          description: Número total de resultados retornados pelo Fuseki
+          minimum: 0
+        timing:
+          $ref: "#/components/schemas/TimingInfo"
+
+    ExampleUsed:
+      type: object
+      required: [id, difficulty, question_en]
+      description: Exemplo few-shot recuperado do gold standard
+      properties:
+        id:
+          type: string
+          description: Identificador da questão no gold standard (ex. "Q01")
+          example: "Q01"
+        difficulty:
+          type: string
+          enum: [easy, medium, hard]
+          description: Nível de dificuldade da questão de exemplo
+        question_en:
+          type: string
+          description: Texto da pergunta de exemplo em inglês
+
+    ValidationInfo:
+      type: object
+      required: [valid, errors, warnings]
+      description: Resultado da validação de schema SPARQL pelo SchemaValidator
+      properties:
+        valid:
+          type: boolean
+          description: True se a query passou em todos os checks de validação
+        errors:
+          type: array
+          items:
+            type: string
+          description: >
+            Lista de erros de validação. Valores possíveis incluem:
+            SYNTAX_ERROR, UNSAFE_OPERATION, INVALID_GRAPH, UNKNOWN_PREDICATE, etc.
+        warnings:
+          type: array
+          items:
+            type: string
+          description: Avisos não-bloqueantes (ex. predicado não encontrado no schema mas query ainda executada)
+
+    TimingInfo:
+      type: object
+      required: [ner_s, retrieval_s, llm_s, total_s]
+      description: Breakdown de latência por fase do pipeline (em segundos)
+      properties:
+        ner_s:
+          type: number
+          format: float
+          description: Tempo de extração de entidades (NER)
+        retrieval_s:
+          type: number
+          format: float
+          description: Tempo de recuperação de exemplos (FAISS search)
+        llm_s:
+          type: number
+          format: float
+          description: Tempo do loop LLM + validação + execução Fuseki
+        total_s:
+          type: number
+          format: float
+          description: Tempo total da requisição (ner_s + retrieval_s + llm_s)
+
+    HealthResponse:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+          example: ok

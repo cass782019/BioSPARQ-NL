@@ -1,0 +1,506 @@
+{
+  "generated_at": "2026-05-04T00:00:00Z",
+  "modules": [
+    {
+      "name": "pipeline",
+      "path": "src/pipeline",
+      "purpose": "Orquestrador central do pipeline NL→SPARQL: NER, recuperação few-shot, geração LLM, validação de schema, execução Fuseki, loop de autocorreção",
+      "primary_files": [
+        "src/pipeline/nl_to_sparql.py",
+        "src/pipeline/sparql_validator.py",
+        "src/pipeline/entity_linker.py",
+        "src/pipeline/llm_backends.py"
+      ],
+      "functions": [
+        {
+          "name": "BioSPARQLPipeline.__init__",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["config: dict | None"],
+          "returns": "None",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline.run",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["question: str"],
+          "returns": "dict (question, sparql, validation, execution, attempts, success)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline.build_prompt",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["question: str", "examples: list", "feedback: str | None"],
+          "returns": "tuple[str, str] (system, user_msg)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline.generate_sparql",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["system: str", "user_msg: str"],
+          "returns": "str (SPARQL query)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline._fix_common_errors",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["query: str"],
+          "returns": "str",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline._inject_missing_prefixes",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["query: str"],
+          "returns": "str",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline.retrieve_examples",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["question: str", "top_k: int = 3"],
+          "returns": "list[dict]",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "BioSPARQLPipeline.execute_sparql",
+          "file": "src/pipeline/nl_to_sparql.py",
+          "params": ["query: str"],
+          "returns": "dict (success, results, count)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "SchemaValidator.validate",
+          "file": "src/pipeline/sparql_validator.py",
+          "params": ["sparql_query: str"],
+          "returns": "dict (valid, errors, warnings)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "SchemaValidator.format_feedback",
+          "file": "src/pipeline/sparql_validator.py",
+          "params": ["validation_result: dict", "original_query: str"],
+          "returns": "str",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [
+        {
+          "name": "BioSPARQLPipeline.config",
+          "fields": [
+            { "name": "endpoint", "type": "str", "required": true, "default": "http://localhost:3030/biomedical/sparql" },
+            { "name": "lm_studio_url", "type": "str", "required": true, "default": "http://localhost:1234/v1" },
+            { "name": "llm_model", "type": "str", "required": true, "default": "auto" },
+            { "name": "max_retries", "type": "int", "required": true, "default": 2 },
+            { "name": "top_k_examples", "type": "int", "required": true, "default": 3 },
+            { "name": "llm_timeout", "type": "float", "required": true, "default": 300.0 },
+            { "name": "fuseki_timeout", "type": "int", "required": true, "default": 30 },
+            { "name": "disable_ner", "type": "bool", "required": false, "default": false },
+            { "name": "disable_schema", "type": "bool", "required": false, "default": false },
+            { "name": "semantic_retry", "type": "bool", "required": false, "default": true }
+          ],
+          "confidence": "confirmed"
+        }
+      ],
+      "business_rules": [
+        {
+          "description": "DOID usa MIM: em hasDbXref, HPOA usa OMIM: em source_id — JOIN requer BIND(REPLACE(...,'MIM:','OMIM:'))",
+          "location": "src/pipeline/nl_to_sparql.py:build_prompt()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "Labels SPARQL devem estar em inglês — pipeline orienta LLM a traduzir PT→EN",
+          "location": "src/pipeline/nl_to_sparql.py:build_prompt()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "Semantic retry: query válida + 0 resultados dispara re-prompt com orientações de tradução",
+          "location": "src/pipeline/nl_to_sparql.py:run():SEMANTIC_RETRY_FEEDBACK",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "doid: e hpo: não são prefixos válidos no triplestore — removidos em _fix_common_errors",
+          "location": "src/pipeline/nl_to_sparql.py:_fix_common_errors()",
+          "confidence": "confirmed"
+        }
+      ],
+      "algorithms": [
+        "Loop de autocorreção com semantic retry (máx 4 tentativas)",
+        "Pós-processamento SPARQL com 8 transformações regex",
+        "Auto-declaração de prefixos faltantes via regex",
+        "Busca por similaridade FAISS (Inner Product = cosine)"
+      ],
+      "dependencies": ["ner", "api", "evaluation"],
+      "complexity": "high"
+    },
+    {
+      "name": "ner",
+      "path": "src/pipeline/ner",
+      "purpose": "Backends NER plugáveis para extração de entidades biomédicas e resolução a ontology IDs (DOID/HP)",
+      "primary_files": [
+        "src/pipeline/ner/base.py",
+        "src/pipeline/ner/factory.py",
+        "src/pipeline/ner/scispacy_backend.py",
+        "src/pipeline/ner/llm_backend.py",
+        "src/pipeline/entity_linker.py"
+      ],
+      "functions": [
+        {
+          "name": "get_backend",
+          "file": "src/pipeline/ner/factory.py",
+          "params": ["name: str | None"],
+          "returns": "NERBackend (lru_cache singleton)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "merge_overlaps",
+          "file": "src/pipeline/ner/base.py",
+          "params": ["entities: Sequence[Entity]"],
+          "returns": "list[Entity]",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "ScispaCyBackend.extract",
+          "file": "src/pipeline/ner/scispacy_backend.py",
+          "params": ["text: str"],
+          "returns": "list[Entity]",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "ScispaCyBackend._resolve",
+          "file": "src/pipeline/ner/scispacy_backend.py",
+          "params": ["entity_text: str"],
+          "returns": "dict | None (curie, uri, graph)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "LLMBackend.extract",
+          "file": "src/pipeline/ner/llm_backend.py",
+          "params": ["text: str"],
+          "returns": "list[Entity]",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [
+        {
+          "name": "Entity",
+          "fields": [
+            { "name": "text", "type": "str", "required": true },
+            { "name": "start", "type": "int", "required": true },
+            { "name": "end", "type": "int", "required": true },
+            { "name": "type", "type": "str", "required": true },
+            { "name": "ontology_ids", "type": "list[str]", "required": false, "default": [] },
+            { "name": "scores", "type": "list[float]", "required": false, "default": [] },
+            { "name": "backend", "type": "str", "required": false, "default": "" }
+          ],
+          "confidence": "confirmed"
+        }
+      ],
+      "business_rules": [
+        {
+          "description": "Spans com len<4, em stopwords PT+EN (~80 termos), ou ratio alfa<50% são descartados",
+          "location": "src/pipeline/ner/scispacy_backend.py:_is_noise()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "LLMBackend não infere IDs — apenas extrai spans; Gilda resolve IDs deterministicamente",
+          "location": "src/pipeline/ner/llm_backend.py",
+          "confidence": "confirmed"
+        }
+      ],
+      "algorithms": [
+        "Deduplicação de spans sobrepostos por score (merge_overlaps)",
+        "Resolução NER via SPARQL Fuseki rdfs:label LCASE match",
+        "Grounding Gilda com score mínimo 0.5 e whitelist de namespaces"
+      ],
+      "dependencies": ["pipeline"],
+      "complexity": "medium"
+    },
+    {
+      "name": "api",
+      "path": "src/api",
+      "purpose": "Servidor FastAPI REST — interface entre frontend React e pipeline NL→SPARQL",
+      "primary_files": ["src/api/server.py"],
+      "functions": [
+        {
+          "name": "health",
+          "file": "src/api/server.py",
+          "params": [],
+          "returns": "HealthResponse",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "ask",
+          "file": "src/api/server.py",
+          "params": ["request: AskRequest"],
+          "returns": "AskResponse",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "get_pipeline",
+          "file": "src/api/server.py",
+          "params": [],
+          "returns": "BioSPARQLPipeline (singleton)",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [
+        {
+          "name": "AskRequest",
+          "fields": [{ "name": "question", "type": "str", "required": true }],
+          "confidence": "confirmed"
+        },
+        {
+          "name": "AskResponse",
+          "fields": [
+            { "name": "answer", "type": "str", "required": true },
+            { "name": "success", "type": "bool", "required": true },
+            { "name": "xai", "type": "ExplainabilityInfo", "required": true }
+          ],
+          "confidence": "confirmed"
+        },
+        {
+          "name": "ExplainabilityInfo",
+          "fields": [
+            { "name": "entities", "type": "list[str]", "required": true },
+            { "name": "examples_used", "type": "list[ExampleUsed]", "required": true },
+            { "name": "sparql", "type": "str", "required": true },
+            { "name": "validation", "type": "ValidationInfo", "required": true },
+            { "name": "attempts", "type": "int", "required": true },
+            { "name": "results_raw", "type": "list[Any]", "required": true },
+            { "name": "results_count", "type": "int", "required": true },
+            { "name": "timing", "type": "TimingInfo", "required": true }
+          ],
+          "confidence": "confirmed"
+        }
+      ],
+      "business_rules": [
+        {
+          "description": "Pipeline é singleton lazy-init — primeiro /api/ask dispara carregamento do modelo",
+          "location": "src/api/server.py:get_pipeline()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "CORS permite apenas localhost:5173 (Vite) e localhost:3000 (Playwright)",
+          "location": "src/api/server.py:app.add_middleware()",
+          "confidence": "confirmed"
+        }
+      ],
+      "algorithms": [],
+      "dependencies": ["pipeline"],
+      "complexity": "low"
+    },
+    {
+      "name": "evaluation",
+      "path": "src/evaluation",
+      "purpose": "Framework de avaliação multi-modelo: 30 questões, 2 cenários, ablação em 6 configurações, tabelas LaTeX",
+      "primary_files": [
+        "src/evaluation/run_evaluation.py",
+        "src/evaluation/run_all_models.py",
+        "src/evaluation/ablation_configs.py",
+        "src/evaluation/run_ablation.py",
+        "src/evaluation/consolidate.py",
+        "src/evaluation/latex_tables.py"
+      ],
+      "functions": [
+        {
+          "name": "evaluate",
+          "file": "src/evaluation/run_evaluation.py",
+          "params": ["pipeline", "questions: list", "use_validation: bool"],
+          "returns": "list[dict] (resultados por questão)",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [],
+      "business_rules": [
+        {
+          "description": "30 questões fixas (10 easy/10 medium/10 hard) — não reduzir",
+          "location": "data/gold_standard/questions.json",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "Cenário A: com validação max_retries=2; Cenário B: sem validação max_retries=0",
+          "location": "src/evaluation/run_evaluation.py:evaluate()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "6 ablation configs: full, no_ner, no_fewshot, no_schema, no_validation, zero_shot",
+          "location": "src/evaluation/ablation_configs.py",
+          "confidence": "confirmed"
+        }
+      ],
+      "algorithms": ["Spot-check semântico via substring match nos bindings Fuseki"],
+      "dependencies": ["pipeline"],
+      "complexity": "medium"
+    },
+    {
+      "name": "utils",
+      "path": "src/utils",
+      "purpose": "Utilitários de preparação de dados: conversão HPOA, extração de schema SPARQL, construção de índice FAISS",
+      "primary_files": [
+        "src/utils/hpoa_to_rdf.py",
+        "src/utils/schema_extractor.py",
+        "src/utils/index_builder.py",
+        "src/utils/gold_standard.py"
+      ],
+      "functions": [
+        {
+          "name": "convert_hpoa_to_rdf",
+          "file": "src/utils/hpoa_to_rdf.py",
+          "params": ["input_tsv: str", "output_ttl: str"],
+          "returns": "int (triplas geradas)",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "build_index",
+          "file": "src/utils/index_builder.py",
+          "params": ["questions_path: str", "index_path: str", "model_name: str"],
+          "returns": "faiss.Index",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "extract_class_schema",
+          "file": "src/utils/schema_extractor.py",
+          "params": ["endpoint_url: str", "graph_uri: str"],
+          "returns": "dict (classes, predicates)",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [],
+      "business_rules": [
+        {
+          "description": "Qualificador NOT no HPOA é descartado — fenótipo negativo não é anotação",
+          "location": "src/utils/hpoa_to_rdf.py:convert_hpoa_to_rdf()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "HPOA source_id é literal textual OMIM:* para JOIN cross-graph com DOID hasDbXref MIM:*",
+          "location": "src/utils/hpoa_to_rdf.py",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "FAISS IndexFlatIP com vetores normalizados = similaridade cosine",
+          "location": "src/utils/index_builder.py:build_index()",
+          "confidence": "confirmed"
+        }
+      ],
+      "algorithms": [
+        "Embeddings sentence-transformers all-MiniLM-L6-v2 (384 dim)",
+        "FAISS IndexFlatIP (Inner Product = cosine com vetores normalizados)",
+        "Retry exponencial (3 tentativas, backoff 2^n) para SPARQL queries"
+      ],
+      "dependencies": [],
+      "complexity": "medium"
+    },
+    {
+      "name": "frontend",
+      "path": "frontend/src",
+      "purpose": "Interface React SPA com painel XAI — visualização de entidades, SPARQL gerado, validação e timing",
+      "primary_files": [
+        "frontend/src/App.jsx",
+        "frontend/src/main.jsx",
+        "frontend/src/components/ChatPanel.jsx",
+        "frontend/src/components/XaiPanel.jsx",
+        "frontend/src/components/SparqlBlock.jsx",
+        "frontend/src/components/TimingBar.jsx"
+      ],
+      "functions": [
+        {
+          "name": "App.handleSend",
+          "file": "frontend/src/App.jsx",
+          "params": ["text: string"],
+          "returns": "Promise<void>",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [
+        {
+          "name": "AppState",
+          "fields": [
+            { "name": "messages", "type": "Array<{role, text}>", "required": true, "default": "[]" },
+            { "name": "xai", "type": "AskResponse | null", "required": true, "default": "null" },
+            { "name": "loading", "type": "boolean", "required": true, "default": "false" }
+          ],
+          "confidence": "confirmed"
+        }
+      ],
+      "business_rules": [
+        {
+          "description": "Proxy Vite encaminha /api/* → localhost:8000",
+          "location": "frontend/vite.config.js",
+          "confidence": "inferred"
+        }
+      ],
+      "algorithms": [],
+      "dependencies": ["api"],
+      "complexity": "low"
+    },
+    {
+      "name": "src2",
+      "path": "src2",
+      "purpose": "Revisão 2: adiciona ClaudeCLIBackend (OAuth sem API key) e Playwright runner para testes E2E via browser",
+      "primary_files": [
+        "src2/pipeline/llm_backends.py",
+        "src2/pipeline/nl_to_sparql.py",
+        "src2/evaluation/playwright_runner.py",
+        "src2/evaluation/corrections_report.py",
+        "src2/evaluation/run_all_models.py"
+      ],
+      "functions": [
+        {
+          "name": "ClaudeCLIBackend.generate",
+          "file": "src2/pipeline/llm_backends.py",
+          "params": ["system: str", "user_msg: str"],
+          "returns": "str",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "run",
+          "file": "src2/evaluation/playwright_runner.py",
+          "params": ["questions: list", "args: Namespace"],
+          "returns": "None (escreve JSONL)",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [],
+      "business_rules": [
+        {
+          "description": "ClaudeCLI usa workdir isolado fora de proj1 para evitar auto-discovery de CLAUDE.md",
+          "location": "src2/pipeline/llm_backends.py:ClaudeCLIBackend.__init__()",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "Playwright intercepta /api/ask via page.on(response) — não faz parse do HTML",
+          "location": "src2/evaluation/playwright_runner.py:handle_response()",
+          "confidence": "confirmed"
+        }
+      ],
+      "algorithms": [],
+      "dependencies": ["pipeline", "api", "frontend"],
+      "complexity": "medium"
+    },
+    {
+      "name": "gates",
+      "path": "gates",
+      "purpose": "Scripts de validação por fase — verificam pré-condições do ambiente, dados, pipeline e avaliação",
+      "primary_files": [
+        "gates/gate0_check.py",
+        "gates/gate1_check.py",
+        "gates/gate2_check.py",
+        "gates/gate3_check.py",
+        "gates/gate6_check.py"
+      ],
+      "functions": [],
+      "entities": [],
+      "business_rules": [
+        {
+          "description": "Gate 0 verifica Ollama (legacy) além de LM Studio — sistema foi migrado mas gate não atualizado",
+          "location": "gates/gate0_check.py",
+          "confidence": "inferred"
+        }
+      ],
+      "algorithms": [],
+      "dependencies": ["pipeline", "evaluation"],
+      "complexity": "low"
+    }
+  ]
+}

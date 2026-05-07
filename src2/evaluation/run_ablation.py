@@ -71,7 +71,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Estudo de ablacao BioSPARQL-NL (rev 2)")
     parser.add_argument("--model", default="google/gemma-3-4b")
-    parser.add_argument("--backend", default="lm_studio", choices=["lm_studio", "claude_cli"])
+    parser.add_argument("--backend", default="lm_studio", choices=["lm_studio", "claude_cli", "codex_cli", "gemini_cli"])
     parser.add_argument("--max-budget-usd", type=float, default=None)
     parser.add_argument("--limit", type=int, default=None, help="Limita questoes (smoke test)")
     args = parser.parse_args()

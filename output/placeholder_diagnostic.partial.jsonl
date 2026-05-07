@@ -1,0 +1,30 @@
+{"id": "Q01", "difficulty": "easy", "placeholder": false, "correct": false, "attempts": 3, "sparql_snippet": ""}
+{"id": "Q02", "difficulty": "easy", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q03", "difficulty": "easy", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q04", "difficulty": "easy", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q05", "difficulty": "easy", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q06", "difficulty": "easy", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q07", "difficulty": "easy", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q08", "difficulty": "easy", "placeholder": true, "correct": true, "attempts": 3, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nSELECT (COUNT(DISTINCT LCASE(?label)) AS ?total) WHERE {\n  GRAPH <urn:hpo> {\n    ?pheno rdfs:label ?label .\n    FILTER(CONTAINS(LCASE(?label),\"term"}
+{"id": "Q09", "difficulty": "easy", "placeholder": false, "correct": false, "attempts": 4, "sparql_snippet": ""}
+{"id": "Q10", "difficulty": "easy", "placeholder": false, "correct": false, "attempts": 2, "sparql_snippet": ""}
+{"id": "Q11", "difficulty": "medium", "placeholder": false, "correct": false, "attempts": 3, "sparql_snippet": ""}
+{"id": "Q12", "difficulty": "medium", "placeholder": true, "correct": false, "attempts": 4, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\n\nSELECT DISTINCT ?phenotype_label WHERE {\n"}
+{"id": "Q13", "difficulty": "medium", "placeholder": false, "correct": true, "attempts": 2, "sparql_snippet": ""}
+{"id": "Q14", "difficulty": "medium", "placeholder": false, "correct": true, "attempts": 2, "sparql_snippet": ""}
+{"id": "Q15", "difficulty": "medium", "placeholder": false, "correct": true, "attempts": 2, "sparql_snippet": ""}
+{"id": "Q16", "difficulty": "medium", "placeholder": true, "correct": false, "attempts": 2, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT DISTINCT ?label WHERE {\n  GRAPH <u"}
+{"id": "Q17", "difficulty": "medium", "placeholder": true, "correct": false, "attempts": 4, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT ?phenotype_label\nWHERE {\n  GRAPH <"}
+{"id": "Q18", "difficulty": "medium", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q19", "difficulty": "medium", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q20", "difficulty": "medium", "placeholder": true, "correct": false, "attempts": 3, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\n\nSELECT ?label (COUNT(DISTINCT ?xref) AS ?num_xrefs)\nWHERE {\n  GRAPH <urn:doid> {\n"}
+{"id": "Q21", "difficulty": "hard", "placeholder": true, "correct": false, "attempts": 3, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT ?disease_name (COUNT(DISTINCT ?phe"}
+{"id": "Q22", "difficulty": "hard", "placeholder": true, "correct": false, "attempts": 2, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT ?phenotype_label (COUNT(DISTINCT ?disease) AS ?frequency)\nWHERE {\n  GRAPH <urn:hpo> { ?phenotype rd"}
+{"id": "Q23", "difficulty": "hard", "placeholder": false, "correct": true, "attempts": 2, "sparql_snippet": ""}
+{"id": "Q24", "difficulty": "hard", "placeholder": false, "correct": false, "attempts": 3, "sparql_snippet": ""}
+{"id": "Q25", "difficulty": "hard", "placeholder": false, "correct": false, "attempts": 4, "sparql_snippet": ""}
+{"id": "Q26", "difficulty": "hard", "placeholder": true, "correct": false, "attempts": 3, "sparql_snippet": "PREFIX obo: <http://purl.obolibrary.org/obo/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpo"}
+{"id": "Q27", "difficulty": "hard", "placeholder": true, "correct": false, "attempts": 4, "sparql_snippet": "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX oboInOwl: <http://www.geneontology.org/formats/oboInOwl#>\nPREFIX hpoa: <http://example.org/hpoa/>\n\nSELECT ?phenotype_label ?disease_name\nWHE"}
+{"id": "Q28", "difficulty": "hard", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q29", "difficulty": "hard", "placeholder": false, "correct": true, "attempts": 1, "sparql_snippet": ""}
+{"id": "Q30", "difficulty": "hard", "placeholder": false, "correct": false, "attempts": 2, "sparql_snippet": ""}

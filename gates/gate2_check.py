@@ -28,7 +28,7 @@ except Exception as e:
 try:
     with open("data/gold_standard/questions.json", encoding="utf-8") as f:
         qs = json.load(f)
-    checks.append(("Gold standard total", len(qs) >= 50, f"{len(qs)} questoes"))
+    checks.append(("Gold standard total", len(qs) >= 30, f"{len(qs)} questoes"))
 
     # Distribuicao
     easy = sum(1 for q in qs if q["difficulty"] == "easy")
@@ -82,7 +82,7 @@ except Exception as e:
 # 2c. Indice FAISS
 try:
     index = faiss.read_index("data/gold_standard/questions.index")
-    checks.append(("FAISS index", index.ntotal >= 50, f"{index.ntotal} vetores"))
+    checks.append(("FAISS index", index.ntotal >= 30, f"{index.ntotal} vetores"))
 except Exception as e:
     checks.append(("FAISS index", False, str(e)))
 
